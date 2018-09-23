@@ -33,6 +33,15 @@ public class playerDatabase {
             }
         }
     }
+
+    public void updatePlayerSalary(String playerName, int playerSalary) {
+        for (int i = 0; i < playerSet.size(); i++) {
+            if (playerSet.get(i).getPlayerName().contains(playerName)) {
+                playerSet.get(i).setSalary(playerSalary);
+
+            }
+        }
+    }
     public void printPlayers()
     {
         for (int i=0;i<playerSet.size();i++)

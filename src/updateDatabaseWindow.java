@@ -5,84 +5,81 @@ import java.awt.event.ActionListener;
 import javax.imageio.*;
 import java.io.IOException;
 
-public class updateDatabaseWindow {
+public class updateDatabaseWindow extends startWindow{
 
-  csvParser parser=new csvParser();
+
     updateDatabaseWindow() {
+
+
         FileDialog dialog=new FileDialog((Frame)null, "Select Salary File");
 
-        JFrame f = new JFrame("Update Database");
-//        ut.println("Could not find image.");
-//        }
-
+        JFrame databaseFrame = new JFrame("Update Database");
 //
-
-
         JLabel header=new JLabel();
         header.setFont(new Font ("Courier",Font.BOLD,14));
         header.setBounds(10,-120,900,300);
         header.setText("Here you may:");
-        f.add(header);
+        databaseFrame.add(header);
 
         //New Job button
         JButton updateSalaryButton = new JButton("Update Salaries");
         updateSalaryButton.setBounds(10, 80, 150, 40);
-        f.add(updateSalaryButton);
+        databaseFrame.add(updateSalaryButton);
 
         JLabel salaryUpdate=new JLabel("Salaries updated.");
         salaryUpdate.setBounds(10,110,150,40);
         salaryUpdate.setVisible(false);
-        f.add(salaryUpdate);
+        databaseFrame.add(salaryUpdate);
 
         //Edit Job button
         JButton updateProjectionButton = new JButton("Update Projections");
         updateProjectionButton.setBounds(10, 180, 150, 40);
-        f.add(updateProjectionButton);
+        databaseFrame.add(updateProjectionButton);
 
         JLabel projections =new JLabel("QB        RB       WR");
         projections.setBounds(10,210,150,40);
         projections.setVisible(true);
-        f.add(projections);
+        databaseFrame.add(projections);
 
         JLabel projections2 =new JLabel("TE        DST");
         projections2.setBounds(30,225,150,40);
         projections2.setVisible(true);
-        f.add(projections2);
+        databaseFrame.add(projections2);
 
         JLabel QBprojectionUpdate=new JLabel("X");
         QBprojectionUpdate.setBounds(32,210,150,40);
         QBprojectionUpdate.setVisible(false);
-        f.add(QBprojectionUpdate);
+        databaseFrame.add(QBprojectionUpdate);
 
         JLabel RBprojectionUpdate=new JLabel("X");
         RBprojectionUpdate.setBounds(74,210,150,40);
         RBprojectionUpdate.setVisible(false);
-        f.add(RBprojectionUpdate);
+        databaseFrame.add(RBprojectionUpdate);
 
         JLabel WRprojectionUpdate=new JLabel("X");
         WRprojectionUpdate.setBounds(115,210,150,40);
         WRprojectionUpdate.setVisible(false);
-        f.add(WRprojectionUpdate);
+        databaseFrame.add(WRprojectionUpdate);
 
         JLabel TEprojectionUpdate=new JLabel("X");
         TEprojectionUpdate.setBounds(50,225,150,40);
         TEprojectionUpdate.setVisible(false);
-        f.add(TEprojectionUpdate);
+        databaseFrame.add(TEprojectionUpdate);
 
         JLabel DSTprojectionUpdate=new JLabel("X");
         DSTprojectionUpdate.setBounds(95,225,150,40);
         DSTprojectionUpdate.setVisible(false);
-        f.add(DSTprojectionUpdate);
+        databaseFrame.add(DSTprojectionUpdate);
         //Return button
         JButton returnButton = new JButton("Finished");
         returnButton.setBounds(10, 280, 150, 40);
-        f.add(returnButton);
+        databaseFrame.add(returnButton);
 
-        f.setSize(250,400);
-        f.setLocationRelativeTo(null);
-        f.setLayout(null);
-        f.setVisible(true);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        databaseFrame.setSize(250,400);
+        databaseFrame.setLocationRelativeTo(null);
+        databaseFrame.setLayout(null);
+        databaseFrame.setVisible(true);
+        databaseFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
 
@@ -128,7 +125,9 @@ public class updateDatabaseWindow {
         returnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                parser.printDatabase();
+               // parser.printDatabase();
+                databaseFrame.setVisible(false);
+
             }
         });
 

@@ -11,51 +11,47 @@ import java.io.IOException;
 
 public class startWindow {
 
-    String results;
-    String query;
-    String combo;
+    csvParser parser=new csvParser();
     startWindow() {
 
-        JFrame f = new JFrame("Job Hunt Tracker");
-//        ut.println("Could not find image.");
-//        }
+        parser.setBaseDatabase();
 
-//
+        JFrame startFrame = new JFrame("Job Hunt Tracker");
 
 
         JLabel header=new JLabel();
         header.setFont(new Font ("Courier",Font.BOLD,14));
         header.setBounds(10,-120,900,300);
         header.setText("<html>Football Money Maker!<br/> Here you may:.</html>");
-        f.add(header);
+        startFrame.add(header);
 
         //New Job button
         JButton newRosterButton = new JButton("Generate a roster");
         newRosterButton.setBounds(20, 80, 150, 40);
-        f.add(newRosterButton);
+        startFrame.add(newRosterButton);
 
         //Edit Job button
         JButton editRosterButton = new JButton("Manually build");
         editRosterButton.setBounds(20, 180, 150, 40);
-        f.add(editRosterButton);
+        startFrame.add(editRosterButton);
 
         //Print Job button
         JButton updateRosterButton = new JButton("Update Database");
         updateRosterButton.setBounds(20, 280, 150, 40);
-        f.add(updateRosterButton);
+        startFrame.add(updateRosterButton);
 
-        f.setSize(250,400);
-        f.setLocationRelativeTo(null);
-        f.setLayout(null);
-        f.setVisible(true);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        startFrame.setSize(250,400);
+        startFrame.setLocationRelativeTo(null);
+        startFrame.setLayout(null);
+        startFrame.setVisible(true);
+        startFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //action listener
         newRosterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                //new newjobWindow();
-                f.setVisible(false);
+                parser.printDatabase();
+                startFrame.setVisible(false);
             }
         });
         editRosterButton.addActionListener(new ActionListener() {
@@ -67,7 +63,7 @@ public class startWindow {
         updateRosterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                f.setVisible(false);
+                startFrame.setVisible(false);
                 new updateDatabaseWindow();
             }
         });

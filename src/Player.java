@@ -6,15 +6,20 @@ public class Player {
     private int playerSalary;
     private float projPoints;
 
-    public Player(String name, String team, String position)
+    public Player(String name, String team, String position, int salary, float projection)
     {
         playerName=name;
         playerTeam=team;
         playerPos=position;
+        playerSalary=salary;
+        projPoints=projection;
     }
 
     public void setProjections(float newProj){
-        projPoints=newProj;
+        if (projPoints==0)
+            projPoints=newProj;
+        else
+            projPoints=(projPoints+newProj)/2;
     }
 
     public int getPlayerSalary(){
