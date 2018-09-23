@@ -6,12 +6,11 @@ public class Player {
     private int playerSalary;
     private float projPoints;
 
-    public Player(String name, String team, String position, String salary)
+    public Player(String name, String team, String position)
     {
         playerName=name;
         playerTeam=team;
         playerPos=position;
-        playerSalary=Integer.parseInt(salary);
     }
 
     public void setProjections(float newProj){
@@ -20,6 +19,10 @@ public class Player {
 
     public int getPlayerSalary(){
         return playerSalary;
+    }
+
+    public void setSalary(int salary){
+        playerSalary=salary;
     }
 
     public float getProjection(){
