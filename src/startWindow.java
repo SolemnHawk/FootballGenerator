@@ -50,8 +50,8 @@ public class startWindow {
         newRosterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                parser.printDatabase();
                 startFrame.setVisible(false);
+                new LineupWindow(parser);
             }
         });
         editRosterButton.addActionListener(new ActionListener() {
