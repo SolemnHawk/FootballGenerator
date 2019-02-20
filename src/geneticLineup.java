@@ -18,7 +18,7 @@ public class geneticLineup {
             randomVal=rand.nextInt(playerSet.size());
 
 
-            if(set.playerViable(playerSet.get(randomVal))==true) {
+            if(set.playerViable(playerSet.get(randomVal))==true) { //If player meets criteria add to lineup
                 set.addPlayer(playerSet.get(randomVal));
                 lineupCounter--;
             }
