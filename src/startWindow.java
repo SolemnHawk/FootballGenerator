@@ -51,6 +51,8 @@ public class startWindow {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 startFrame.setVisible(false);
+                parser.database.sortDatabase();
+                parser.database.printPlayers();
                 new LineupWindow(parser);
             }
         });

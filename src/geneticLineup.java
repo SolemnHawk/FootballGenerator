@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class geneticLineup {
     public List<Player> start(csvParser parser){
 
-        List<Player> playerSet=parser.database.getDatabase();
+        ArrayList<ArrayList<Player>> playerSet=parser.database.getSortedDatabase();
 
         lineupSet set=new lineupSet();
 

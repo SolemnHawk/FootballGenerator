@@ -10,6 +10,7 @@ public class lineupSet {
     List<Player> sortedLineup=new ArrayList<>();
     private int lineupCost=0;
     private double lineupProj=0.0;
+    private double fitness=0.0;
 
     private int SALARY_CAP=60000;
 
@@ -25,6 +26,10 @@ public class lineupSet {
         }
         //Check salary cost limits
         if ((lineupCost + newPlayer.getPlayerSalary() > SALARY_CAP))
+            return false;
+
+        //Dont select players that wont score
+        if ((newPlayer.getProjection())<1)
             return false;
 
         String playerPos = newPlayer.getPlayerPos();
@@ -220,6 +225,13 @@ public class lineupSet {
         
         //Add DEF to sorted lineup
         sortedLineup.add(lineUp.get(0));
+    }
+    public void findFitness(){
+        for (int i=0;i<lineUp.size();i++)
+            fitness=fitness+lineUp.get(i).getProjection();
+    }
+    public double getFitness(){
+        return fitness;
     }
     public List<Player> getlineUp() {
         return sortedLineup;

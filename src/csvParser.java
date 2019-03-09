@@ -206,7 +206,6 @@ public class csvParser {
             e.printStackTrace();
         }
     }
-
     public void printDatabase()
     {
      database.printPlayers();

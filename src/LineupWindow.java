@@ -194,6 +194,7 @@ public class LineupWindow {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 List<Player> lineup=genetic.start(parser);
+
                 QB.setText("QB: "+ lineup.get(0).getPlayerName());
                 QBTeam.setText(lineup.get(0).getPlayerTeam());
                 QBSalary.setText(""+lineup.get(0).getPlayerSalary());
