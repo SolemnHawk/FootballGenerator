@@ -16,8 +16,9 @@ public class geneticLineup {
         int lineupCounter = 9; //number of players in a full lineup
 
         //add smaller cost positions first to create easier viability checks
-        randomVal = rand.nextInt(playerSet.get(4).size()); //DEF addition first
+
         while(lineupCounter==9) {
+            randomVal = rand.nextInt(playerSet.get(4).size()); //DEF addition first
             if (set.playerViable(playerSet.get(4).get(randomVal)) == true) { //If player meets criteria add to lineup
                 set.addPlayer(playerSet.get(4).get(randomVal));
                 lineupCounter--;
@@ -65,7 +66,6 @@ public class geneticLineup {
         //Selecting position for the flex
         while(lineupCounter>0) {
             randomVal = rand.nextInt(2);
-            System.out.println(randomVal);
             if (randomVal == 0) { //flex will be a RB
                 randomVal = rand.nextInt(playerSet.get(1).size());
                 if (set.playerViable(playerSet.get(1).get(randomVal)) == true) { //If player meets criteria add to lineup
@@ -80,6 +80,7 @@ public class geneticLineup {
             }
         }
         set.sortLineup();
+       // set.printLineup();
         return set.getlineUp();
     }
 }

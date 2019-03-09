@@ -1,3 +1,5 @@
+import org.apache.commons.lang3.ObjectUtils;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -247,7 +249,6 @@ public class LineupWindow {
                         ""+ (lineup[0].getProjection()+lineup[1].getProjection()+lineup[2].getProjection()+lineup[3].getProjection()+lineup[4].getProjection()
                         +lineup[5].getProjection()+lineup[6].getProjection()+lineup[7].getProjection()+lineup[8].getProjection()));
                 Totals.setVisible(true);
-
             }
         });
 

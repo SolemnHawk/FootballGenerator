@@ -105,7 +105,6 @@ public class csvParser {
             CSVReader reader=new CSVReaderBuilder(filereader).withSkipLines(0).build();
             List<String[]> allData = new ArrayList<>();
             String[] line;
-            int lineskip=0;
             line=reader.readNext();
             allData.add(line);
 
@@ -118,7 +117,6 @@ public class csvParser {
                     counter++;
                 }
             }
-            line=reader.readNext();
             allData.clear();
             while ((line = reader.readNext()) != null) {
                 allData.add(line);
@@ -163,7 +161,6 @@ public class csvParser {
             CSVReader reader=new CSVReaderBuilder(filereader).withSkipLines(0).build();
             List<String[]> allData = new ArrayList<>();
             String[] line;
-            int lineskip=0;
             line=reader.readNext();
             allData.add(line);
 
@@ -176,7 +173,6 @@ public class csvParser {
                     counter++;
                 }
             }
-            line=reader.readNext();
             allData.clear();
             while ((line = reader.readNext()) != null) {
                 allData.add(line);
@@ -186,6 +182,7 @@ public class csvParser {
                 for (String cell:row){
                     if (count==nameSpot) {
                         playerName = cell;
+
                     }
                     else if(count==pointSpot) {
                         playerProj = cell;
