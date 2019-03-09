@@ -1,18 +1,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.apache.commons.lang3.ObjectUtils.max;
+
 public class lineupSet {
 
     int[] posCounter=new int[6];
     //posCounter-> |qbCounter|rbCounter|wrCounter|teCounter|defCounter|flexCounter|
 
     List<Player> lineUp=new ArrayList<>();
-    List<Player> sortedLineup=new ArrayList<>();
+    Player[] sortedLineup=new Player[9];
     private int lineupCost=0;
     private double lineupProj=0.0;
     private double fitness=0.0;
 
-    private int SALARY_CAP=60000;
+    private final int SALARY_CAP=60000;
 
     public lineupSet(){
 
@@ -24,22 +26,24 @@ public class lineupSet {
                 if (lineUp.get(i).equals(newPlayer))
                     return false;
         }
-        //Check salary cost limits
-        if ((lineupCost + newPlayer.getPlayerSalary() > SALARY_CAP))
-            return false;
 
         //Dont select players that wont score
         if ((newPlayer.getProjection())<1)
             return false;
 
+        //Check salary cost limits
+
+        //Player wont break salaray cap
+        if (lineupCost + newPlayer.getPlayerSalary() > SALARY_CAP)
+            return false;
+
+        //Player will not prevent new additions from breaking cap
+        if (lineupCost+newPlayer.getPlayerSalary()+(9-lineUp.size()*4500)>SALARY_CAP)
+            return false;
+
         String playerPos = newPlayer.getPlayerPos();
 
-        if (playerPos.equals("QB")) {
-            if (posCounter[0] == 1)    //if QB is already in lineup, dont add
-                return false;
-
-        }
-        else if(playerPos.equals("RB")) {
+         if(playerPos.equals("RB")) {
             if (posCounter[1] >= 2 && posCounter[5]==1) //if RB is full, check Flex, if full, dont add
             {
                 return false;
@@ -51,14 +55,6 @@ public class lineupSet {
                 return false;
             }
 
-        }
-        else if (playerPos.equals("TE")) {
-            if (posCounter[3] == 1)    //if TE is already in lineup, dont add
-                return false;
-        }
-        else if (playerPos.equals("D")) {
-            if (posCounter[4] == 1)    //if DEF is already in lineup, dont add
-                return false;
         }
 
         return true;
@@ -108,123 +104,72 @@ public class lineupSet {
             lineUp.add(newPlayer);
             posCounter[4]++;
         }
-        lineUp.size();
         lineupCost=lineupCost+newPlayer.getPlayerSalary();
         lineupProj=lineupProj+newPlayer.getProjection();
     }
     public void sortLineup(){ //sort list of players into printable lineup
-        int qb=0;
-        int rb1=0;
-        int rb2=0;
-        int wr1=0;
-        int wr2=0;
-        int wr3=0;
-        int te=0;
-        int flex=0;
-        Player tempPlayer;
+
         lineUp.size();
-        Player tempFlex=lineUp.get(1);
 
-        //find QB position, add to SortedLineup, remove from tempLineup
-        while (!lineUp.get(qb).getPlayerPos().equals("QB"))
-            qb++;
-        sortedLineup.add(lineUp.get(qb));
-        lineUp.remove(qb);
+        sortedLineup[0]=lineUp.get(2);
 
-        //find RB positions, sort them by salary, add to SortedLineup, remove from tempLineup
-        while (!lineUp.get(rb1).getPlayerPos().equals("RB"))
-            rb1++;
-        sortedLineup.add(lineUp.get(rb1));
-        lineUp.remove(rb1);
-        while (!lineUp.get(rb2).getPlayerPos().equals("RB"))
-            rb2++;
-        sortedLineup.add(lineUp.get(rb2));
-        lineUp.remove(rb2);
-        
-        //sort 2 RB's by salary
-        tempPlayer=sortedLineup.get(1);
-        if(sortedLineup.get(1).getPlayerSalary()<sortedLineup.get(2).getPlayerSalary()){
-            sortedLineup.remove(1);
-            sortedLineup.add(tempPlayer);
+        //check which RB has higher salary to list first
+        if(lineUp.get(3).getPlayerSalary() >= lineUp.get(4).getPlayerSalary()) {
+            sortedLineup[1] = lineUp.get(3);
+            sortedLineup[2] = lineUp.get(4);
         }
-        //check if flex is an RB
-        if (posCounter[1]==3)
+        else
         {
-            while (!lineUp.get(flex).getPlayerPos().equals("RB"))
-                flex++;
-            tempFlex=lineUp.get(flex);
-            lineUp.remove(flex);
+            sortedLineup[1]=lineUp.get(4);
+            sortedLineup[2]=lineUp.get(3);
         }
 
-        //find WR positions, sort them by salary, add to SortedLineup, remove from tempLineup
-        while (!lineUp.get(wr1).getPlayerPos().equals("WR"))
-            wr1++;
-        Player tempPlayer1=lineUp.get(wr1);
-        lineUp.remove(wr1);
-        while (!lineUp.get(wr2).getPlayerPos().equals("WR"))
-            wr2++;
-        Player tempPlayer2=lineUp.get(wr2);
-        lineUp.remove(wr2);
-        while (!lineUp.get(wr3).getPlayerPos().equals("WR"))
-            wr3++;
-        Player tempPlayer3=lineUp.get(wr3);
-        lineUp.remove(wr3);
-
-        //sort 3 wr's by salary
-
-        if(tempPlayer1.getPlayerSalary()>=tempPlayer2.getPlayerSalary() && tempPlayer1.getPlayerSalary()>=tempPlayer3.getPlayerSalary()) {
-            sortedLineup.add(tempPlayer1);
-            if(tempPlayer2.getPlayerSalary()>tempPlayer3.getPlayerSalary()) {
-                sortedLineup.add(tempPlayer2);
-                sortedLineup.add(tempPlayer3);
-            }
-            else {
-                sortedLineup.add(tempPlayer3);
-                sortedLineup.add(tempPlayer2);
-            }
-        }
-        else if(tempPlayer2.getPlayerSalary()>=tempPlayer1.getPlayerSalary() && tempPlayer2.getPlayerSalary()>=tempPlayer3.getPlayerSalary()) {
-            sortedLineup.add(tempPlayer2);
-            if(tempPlayer1.getPlayerSalary()>tempPlayer3.getPlayerSalary()) {
-                sortedLineup.add(tempPlayer1);
-                sortedLineup.add(tempPlayer3);
-            }
-            else {
-                sortedLineup.add(tempPlayer3);
-                sortedLineup.add(tempPlayer1);
-            }
-        }
-        else if(tempPlayer3.getPlayerSalary()>=tempPlayer1.getPlayerSalary() && tempPlayer3.getPlayerSalary()>=tempPlayer2.getPlayerSalary()) {
-            sortedLineup.add(tempPlayer3);
-            if(tempPlayer1.getPlayerSalary()>tempPlayer2.getPlayerSalary()) {
-                sortedLineup.add(tempPlayer1);
-                sortedLineup.add(tempPlayer2);
-            }
-            else {
-                sortedLineup.add(tempPlayer2);
-                sortedLineup.add(tempPlayer1);
-            }
-        }
-        //check if flex is an wr
-        if (posCounter[2]==4)
+        //WR salary check for sortting
+            double a=lineUp.get(5).getPlayerSalary();
+            double b=lineUp.get(6).getPlayerSalary();
+            double c=lineUp.get(7).getPlayerSalary();
+            
+        if(a>b&&a>c)
         {
-            while (!lineUp.get(flex).getPlayerPos().equals("WR"))
-                flex++;
-            tempFlex=lineUp.get(flex);
-            lineUp.remove(flex);
+            sortedLineup[3]=lineUp.get(5);
+            if(b>c) {
+                sortedLineup[4] = lineUp.get(6);
+                sortedLineup[5] = lineUp.get(7);
+            }
+            else {
+                sortedLineup[4] = lineUp.get(7);
+                sortedLineup[5] = lineUp.get(6);
+            }
         }
+        else if(b>a&&b>c)
+        {
+            sortedLineup[3]=lineUp.get(6);
+            if(a>c) {
+                sortedLineup[4] = lineUp.get(5);
+                sortedLineup[5] = lineUp.get(7);
+            }
+            else {
+                sortedLineup[4] = lineUp.get(7);
+                sortedLineup[5] = lineUp.get(5);
+            }
+        }
+        else if(c>a&&c>b)
+        {
+            sortedLineup[3]=lineUp.get(7);
+            if(a>b) {
+                sortedLineup[4] = lineUp.get(5);
+                sortedLineup[5] = lineUp.get(6);
+            }
+            else {
+                sortedLineup[4] = lineUp.get(6);
+                sortedLineup[5] = lineUp.get(5);
+            }
+        }
+        
+        sortedLineup[6]=lineUp.get(1);
+        sortedLineup[7]=lineUp.get(8);
+        sortedLineup[8]=lineUp.get(0);
 
-        //Find TE and add to sorted lineup
-        while (!lineUp.get(te).getPlayerPos().equals("TE"))
-            te++;
-        sortedLineup.add(lineUp.get(te));
-        lineUp.remove(te);
-        
-        //Add FLEX position to lineup
-        sortedLineup.add(tempFlex);
-        
-        //Add DEF to sorted lineup
-        sortedLineup.add(lineUp.get(0));
     }
     public void findFitness(){
         for (int i=0;i<lineUp.size();i++)
@@ -233,7 +178,7 @@ public class lineupSet {
     public double getFitness(){
         return fitness;
     }
-    public List<Player> getlineUp() {
+    public Player[] getlineUp() {
         return sortedLineup;
     }
 }

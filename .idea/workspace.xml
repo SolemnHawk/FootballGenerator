@@ -2,36 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff6d3ebe-7df9-4fc6-ac01-bcb7b6ae8a9c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FootballGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FootballGenerator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/LineupWindow$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/LineupWindow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/csvParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/geneticLineup.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/lineupSet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/playerDatabase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/resources/FanDuel-NFL-2018-09-13-28179-players-list.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/resources/FantasyPros_Fantasy_Football_Projections_DST.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/resources/FantasyPros_Fantasy_Football_Projections_QB.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/resources/FantasyPros_Fantasy_Football_Projections_RB.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/resources/FantasyPros_Fantasy_Football_Projections_TE.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/resources/FantasyPros_Fantasy_Football_Projections_WR.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/startWindow$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/startWindow$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/startWindow$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/startWindow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/updateDatabaseWindow$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/updateDatabaseWindow$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/updateDatabaseWindow$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Football/updateDatabaseWindow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/lineupSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/lineupSet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LineupWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LineupWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/csvParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/csvParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geneticLineup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geneticLineup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lineupSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lineupSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playerDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/playerDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/startWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/startWindow.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -43,20 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GeneticsCode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="19" selection-start-column="19" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/geneticLineup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="14" column="65" lean-forward="true" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
+            <state relative-caret-position="255">
+              <caret line="66" column="38" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,10 +31,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lineupSet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="791">
-              <caret line="125" selection-start-line="125" selection-end-line="125" />
+            <state relative-caret-position="306">
+              <caret line="43" column="52" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
               <folding>
-                <element signature="method#addPlayer#0;class#lineupSet#0" />
+                <element signature="method#lineupSet#0;class#lineupSet#0" />
+                <element signature="method#findFitness#0;class#lineupSet#0" />
+                <element signature="e#3925#3961#1" />
+                <element signature="e#5488#5489#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LineupWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="236">
+              <caret line="197" selection-start-line="197" selection-end-line="197" />
             </state>
           </provider>
         </entry>
@@ -88,68 +55,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="438">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
               <folding>
+                <element signature="e#623#624#0" expanded="true" />
+                <element signature="e#658#659#0" expanded="true" />
+                <element signature="e#768#769#0" expanded="true" />
+                <element signature="e#801#802#0" expanded="true" />
+                <element signature="e#837#838#0" expanded="true" />
+                <element signature="e#870#871#0" expanded="true" />
+                <element signature="e#905#906#0" expanded="true" />
                 <element signature="e#937#938#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/playerDatabase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4">
-              <caret line="9" column="69" lean-forward="true" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
-              <folding>
-                <element signature="method#findPlayer#0;class#playerDatabase#0" />
-                <element signature="method#addPlayer#0;class#playerDatabase#0" />
-                <element signature="method#updatePlayerProj#0;class#playerDatabase#0" />
-                <element signature="method#updatePlayerSalary#0;class#playerDatabase#0" />
-                <element signature="method#sortDatabase#0;class#playerDatabase#0" />
-                <element signature="e#1806#1814#0" expanded="true" />
-                <element signature="e#1890#1898#0" expanded="true" />
-                <element signature="e#1952#1960#0" expanded="true" />
-                <element signature="e#2021#2029#0" expanded="true" />
-                <element signature="e#2071#2079#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/startWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="54" column="10" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/updateDatabaseWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="87" column="19" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="19" />
-              <folding>
-                <element signature="method#actionPerformed#0;class#3480:4732" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/csvParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#setBaseDatabase#0;class#csvParser#0" />
-                <element signature="method#parseSalary#0;class#csvParser#0" />
-                <element signature="method#parseProjection#0;class#csvParser#0" />
-                <element signature="method#saveDatabase#0;class#csvParser#0" />
+                <element signature="e#1006#1007#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -174,6 +91,10 @@
       <find>RB1</find>
       <find>0</find>
       <find>300</find>
+      <find>8</find>
+      <find>.get(</find>
+      <find>1)</find>
+      <find>8)</find>
     </findStrings>
     <replaceStrings>
       <replace>Proj</replace>
@@ -191,6 +112,9 @@
       <replace>5</replace>
       <replace>8</replace>
       <replace>330</replace>
+      <replace>7</replace>
+      <replace>[</replace>
+      <replace>8]</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -200,17 +124,23 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/GeneticsCode.java" />
-        <option value="$PROJECT_DIR$/src/lineupSet.java" />
         <option value="$PROJECT_DIR$/src/test/ParsingTests.java" />
         <option value="$PROJECT_DIR$/src/test/csvParserTest.java" />
         <option value="$PROJECT_DIR$/src/csvParserTest.java" />
-        <option value="$PROJECT_DIR$/src/LineupWindow.java" />
         <option value="$PROJECT_DIR$/src/csvParser.java" />
-        <option value="$PROJECT_DIR$/src/startWindow.java" />
         <option value="$PROJECT_DIR$/src/playerDatabase.java" />
+        <option value="$PROJECT_DIR$/src/startWindow.java" />
+        <option value="$PROJECT_DIR$/src/LineupWindow.java" />
+        <option value="$PROJECT_DIR$/src/lineupSet.java" />
         <option value="$PROJECT_DIR$/src/geneticLineup.java" />
       </list>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="620" />
@@ -252,7 +182,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552111718622" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552121067468" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -309,6 +239,15 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
@@ -326,14 +265,14 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3297491" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32936078" />
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
-      <window_info anchor="right" id="Maven" order="2" />
+      <window_info anchor="right" id="Maven" order="2" weight="0.32995737" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
@@ -343,14 +282,12 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/lineupSet.java</url>
-          <line>66</line>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <dependency master-id="0" />
           <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -387,34 +324,6 @@
             <element signature="e#279#280#0" expanded="true" />
             <element signature="e#301#302#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="439" selection-start-line="439" selection-end-line="439" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/jdk/internal/misc/Unsafe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="2274" column="23" selection-start-line="2274" selection-start-column="23" selection-end-line="2274" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LineupWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/startWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="54" column="10" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -461,23 +370,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/startWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="e#937#938#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="185">
+          <caret line="53" column="47" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lineupSet.java">
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/jdk/internal/misc/Unsafe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="791">
-          <caret line="125" selection-start-line="125" selection-end-line="125" />
-          <folding>
-            <element signature="method#addPlayer#0;class#lineupSet#0" />
-          </folding>
+        <state relative-caret-position="176">
+          <caret line="2274" column="23" selection-start-line="2274" selection-start-column="23" selection-end-line="2274" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="439" selection-start-line="439" selection-end-line="439" />
         </state>
       </provider>
     </entry>
@@ -488,10 +398,147 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.desktop/java/awt/EventDispatchThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+          <folding>
+            <element signature="e#2410#2411#0" expanded="true" />
+            <element signature="e#2453#2454#0" expanded="true" />
+            <element signature="e#2652#2653#0" expanded="true" />
+            <element signature="e#2706#2707#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.desktop/javax/swing/AbstractButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="2307" selection-start-line="2307" selection-end-line="2307" />
+          <folding>
+            <element signature="e#83030#83031#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/Objects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="371" selection-start-line="371" selection-end-line="371" />
+          <folding>
+            <element signature="e#13945#13946#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/invoke/MethodHandles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="2464" selection-start-line="2464" selection-end-line="2464" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt://C:/Program Files/Java/jdk-9.0.4!/java.base/java/lang/invoke/DirectMethodHandle$Holder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="370" column="83" selection-start-line="370" selection-start-column="83" selection-end-line="370" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/invoke/DirectMethodHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="284" selection-start-line="284" selection-end-line="284" />
+          <folding>
+            <element signature="e#11948#11949#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/invoke/InvokerBytecodeGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="676" selection-start-line="676" selection-end-line="676" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/invoke/MemberName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="1083" selection-start-line="1083" selection-end-line="1083" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/invoke/MethodHandleNatives.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/invoke/LambdaForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="864" selection-start-line="864" selection-end-line="864" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="407" column="33" lean-forward="true" selection-start-line="407" selection-start-column="33" selection-end-line="407" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/jdk/internal/util/Preconditions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="248" selection-start-line="248" selection-end-line="248" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LineupWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="197" selection-start-line="197" selection-end-line="197" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="e#623#624#0" expanded="true" />
+            <element signature="e#658#659#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+            <element signature="e#801#802#0" expanded="true" />
+            <element signature="e#837#838#0" expanded="true" />
+            <element signature="e#870#871#0" expanded="true" />
+            <element signature="e#905#906#0" expanded="true" />
+            <element signature="e#937#938#0" expanded="true" />
+            <element signature="e#1006#1007#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lineupSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="43" column="52" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
+          <folding>
+            <element signature="method#lineupSet#0;class#lineupSet#0" />
+            <element signature="method#findFitness#0;class#lineupSet#0" />
+            <element signature="e#3925#3961#1" />
+            <element signature="e#5488#5489#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/geneticLineup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="14" column="65" lean-forward="true" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
+        <state relative-caret-position="255">
+          <caret line="66" column="38" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
