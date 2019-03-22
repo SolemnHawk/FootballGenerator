@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.apache.commons.lang3.ObjectUtils.max;
-
 public class lineupSet {
 
     int[] posCounter=new int[6];

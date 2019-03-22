@@ -1,20 +1,15 @@
 public class GeneticsCode {
 
-    private boolean ELITISM=true; // keep best lineup into future
-    private int GEN_SIZE=20; //# of lineups per generation
-    private int LIFETIME=100; //# of Gen to run
+    public void runGenetic(csvParser parser)
+    {
+        geneticLineup genetic=new geneticLineup();
 
-    public boolean getElite()
-    {return ELITISM;
+        while (!genetic.generationFull())
+        {
+                genetic.createLineup(parser);
+        }
+
+        for(int i=0;i<genetic.getGEN_SIZE();i++)
+            System.out.println("Generation "+(i+1)+" fitness: "+ genetic.fullGeneration[i].getFitness());
     }
-
-    public int getGenSize(){
-        return GEN_SIZE;
-    }
-
-    public int getLifetime(){
-        return LIFETIME;
-    }
-
-
 }

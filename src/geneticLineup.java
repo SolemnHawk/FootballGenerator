@@ -1,9 +1,20 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
-public class geneticLineup {
-    public Player[] start(csvParser parser) {
+public class geneticLineup  extends lineupSet{
+
+
+    private boolean ELITISM=true; // keep best lineup into future
+    private double MUTATE_RATE=.01; // rate of mutation
+    private int GEN_SIZE=20; //# of lineups per generation
+    private int LIFETIME=100; //# of Gen to run
+    private int chromosomeCount=0;
+    lineupSet[] fullGeneration=new lineupSet[GEN_SIZE];
+    
+    public geneticLineup(){
+    }
+
+    public void createLineup(csvParser parser) {
 
         ArrayList<ArrayList<Player>> playerSet = parser.database.getSortedDatabase();
 
@@ -16,7 +27,6 @@ public class geneticLineup {
         int lineupCounter = 9; //number of players in a full lineup
 
         //add smaller cost positions first to create easier viability checks
-
         while(lineupCounter==9) {
             randomVal = rand.nextInt(playerSet.get(4).size()); //DEF addition first
             if (set.playerViable(playerSet.get(4).get(randomVal)) == true) { //If player meets criteria add to lineup
@@ -80,7 +90,17 @@ public class geneticLineup {
             }
         }
         set.sortLineup();
-       // set.printLineup();
-        return set.getlineUp();
+        set.findFitness();
+        fullGeneration[chromosomeCount]=set;
+        chromosomeCount++;
     }
+    public boolean generationFull(){
+        if (chromosomeCount<GEN_SIZE)
+            return false;
+        return true;
+    }
+    public double getFitness(lineupSet lineup){
+        return lineup.getFitness();
+    }
+    public int getGEN_SIZE(){return GEN_SIZE;}
 }

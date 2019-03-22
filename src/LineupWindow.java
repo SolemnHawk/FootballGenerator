@@ -11,7 +11,7 @@ public class LineupWindow {
 
 
     LineupWindow(csvParser parser) {
-        geneticLineup genetic=new geneticLineup();
+        GeneticsCode genetic=new GeneticsCode();
         
         JFrame lineupFrame = new JFrame("Generate a Lineup");
 //
@@ -196,8 +196,9 @@ public class LineupWindow {
             @Override
             public void actionPerformed(ActionEvent arg0) {
 
-                Player[] lineup=genetic.start(parser);
+                genetic.runGenetic(parser);
 
+                /*
                 QB.setText("QB: "+ lineup[0].getPlayerName());
                 QBTeam.setText(lineup[0].getPlayerTeam());
                 QBSalary.setText(""+lineup[0].getPlayerSalary());
@@ -248,7 +249,7 @@ public class LineupWindow {
                 +"                  Projected Points: " +
                         ""+ (lineup[0].getProjection()+lineup[1].getProjection()+lineup[2].getProjection()+lineup[3].getProjection()+lineup[4].getProjection()
                         +lineup[5].getProjection()+lineup[6].getProjection()+lineup[7].getProjection()+lineup[8].getProjection()));
-                Totals.setVisible(true);
+                Totals.setVisible(true); */
             }
         });
 
