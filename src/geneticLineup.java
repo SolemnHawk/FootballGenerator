@@ -3,13 +3,14 @@ import java.util.Random;
 
 public class geneticLineup  extends lineupSet{
 
-
+    Random rand = new Random();
     private boolean ELITISM=true; // keep best lineup into future
     private double MUTATE_RATE=.01; // rate of mutation
     private int GEN_SIZE=20; //# of lineups per generation
     private int LIFETIME=100; //# of Gen to run
     private int chromosomeCount=0;
     lineupSet[] fullGeneration=new lineupSet[GEN_SIZE];
+   // lineupSet[] newGeneration=new lineupSet[GEN_SIZE];
     
     public geneticLineup(){
     }
@@ -20,7 +21,7 @@ public class geneticLineup  extends lineupSet{
 
         lineupSet set = new lineupSet();
 
-        Random rand = new Random();
+
         int randomVal;
         int count=0;
 
@@ -103,4 +104,33 @@ public class geneticLineup  extends lineupSet{
         return lineup.getFitness();
     }
     public int getGEN_SIZE(){return GEN_SIZE;}
+    int partition(lineupSet arr[], int low, int high) {
+        double pivot =  arr[high].getFitness();
+        int i = (low-1); // index of smaller element
+        for (int j=low; j<high; j++)
+        {
+            // If current element is smaller than or
+            // equal to pivot
+            if (fullGeneration[j].getFitness() <= pivot)
+            {
+                i++;
+                lineupSet temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        lineupSet temp = arr[i+1];
+        arr[i+1] = arr[high];
+        arr[high] = temp;
+
+        return i+1;
+    }
+    public void sortGeneration(lineupSet arr[], int low, int high){ //Quicksort
+        if (low<high)
+        {
+            int pi=partition(arr,low,high);
+            sortGeneration(arr, low, pi-1);
+            sortGeneration(arr, pi+1, high);
+        }
+    }
 }
