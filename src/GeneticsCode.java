@@ -1,16 +1,31 @@
+import java.text.DecimalFormat;
+
 public class GeneticsCode {
 
     public void runGenetic(csvParser parser)
     {
-        geneticLineup genetic=new geneticLineup();
+        geneticLineup genetic=new geneticLineup(parser);
 
-        while (!genetic.generationFull())
+        int genCount=1;
+        int convergenceCheck=0;
+
+        while (!genetic.generationFull())  //populate
         {
-                genetic.createLineup(parser);
+                genetic.createLineup();
         }
 
-        genetic.sortGeneration(genetic.fullGeneration,0,genetic.getGEN_SIZE()-1);
-         for(int i=0;i<genetic.getGEN_SIZE();i++)
-           System.out.println("Lineup "+(i+1)+" fitness: "+ String.format("%.2f", genetic.fullGeneration[i].getFitness()));
+        while(genCount<=genetic.getLIFETIME()) {
+            genetic.sortGeneration(genetic.fullGeneration, 0, genetic.getGEN_SIZE() - 1);//sort generation by fitness
+            genetic.calculateFitnessRate();  //find total Fitness for generation
+            genetic.evolveGeneration(); //Create next generation
+            System.out.println("The best Lineup for Generation "+ (genCount) + " is: ");
+            genetic.fullGeneration[0].printLineup();
+            DecimalFormat df= new DecimalFormat("0.00");
+            System.out.println("\nProjected Points:" + df.format(genetic.fullGeneration[0].getFitness()));
+            System.out.println("========================================================");
+            genCount++;
+
+
+        }
     }
 }

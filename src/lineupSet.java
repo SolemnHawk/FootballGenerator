@@ -12,19 +12,25 @@ public class lineupSet {
     private double lineupProj=0.0;
     private double fitness=0.0;
     int viableCount=0;
+    private double fitnessPercent=0.0;
+    private int setSize=0;
+
 
     private final int SALARY_CAP=60000;
 
     public lineupSet(){
 
     }
+    public int getSetSize(){return setSize;}
     public boolean playerViable(Player newPlayer) {
 
         if(viableCount>200)//infinite loop break
         {
             for(int i=0;i<lineUp.size();i++)
                 System.out.println(lineUp.get(i).getPlayerName());
+            clearLineUp();
             System.out.println("I'm Stuck in a loop");
+            return false;
         }
         //If player already is in lineup, do not add
         if (lineUp.size() != 0) {
@@ -121,71 +127,89 @@ public class lineupSet {
             lineUp.add(newPlayer);
             posCounter[4]++;
         }
+        setSize++;
         lineupCost=lineupCost+newPlayer.getPlayerSalary();
         lineupProj=lineupProj+newPlayer.getProjection();
     }
     public void sortLineup(){ //sort list of players into printable lineup
 
-        lineUp.size();
+        Player temp;
+        int rbCount=0;
+        int wrCount=0;
 
-        sortedLineup[0]=lineUp.get(2);
-
-        //check which RB has higher salary to list first
-        if(lineUp.get(3).getPlayerSalary() >= lineUp.get(4).getPlayerSalary()) {
-            sortedLineup[1] = lineUp.get(3);
-            sortedLineup[2] = lineUp.get(4);
-        }
-        else
+        for(int i=0;i<9;i++)
         {
-            sortedLineup[1]=lineUp.get(4);
-            sortedLineup[2]=lineUp.get(3);
+            if(lineUp.get(i).getPlayerPos().equals("QB"))
+                sortedLineup[0]=lineUp.get(i);
+            if(lineUp.get(i).getPlayerPos().equals("RB") && rbCount==0) {
+                sortedLineup[1] = lineUp.get(i);
+                rbCount++;
+            }
+            else if(lineUp.get(i).getPlayerPos().equals("RB") && rbCount==1) {
+                sortedLineup[2] = lineUp.get(i);
+                rbCount++;
+            }
+            else if(lineUp.get(i).getPlayerPos().equals("RB") && rbCount==2) {
+                sortedLineup[7] = lineUp.get(i);
+                rbCount++;
+            }
+            if(lineUp.get(i).getPlayerPos().equals("WR") && wrCount==0) {
+                sortedLineup[3] = lineUp.get(i);
+                wrCount++;
+            }
+            else if(lineUp.get(i).getPlayerPos().equals("WR") && wrCount==1) {
+                sortedLineup[4] = lineUp.get(i);
+                wrCount++;
+            }
+            else if(lineUp.get(i).getPlayerPos().equals("WR") && wrCount==2) {
+                sortedLineup[5] = lineUp.get(i);
+                wrCount++;
+            }
+            else if(lineUp.get(i).getPlayerPos().equals("WR") && wrCount==3) {
+                sortedLineup[7] = lineUp.get(i);
+                wrCount++;
+            }
+            if(lineUp.get(i).getPlayerPos().equals("TE"))
+                sortedLineup[6]=lineUp.get(i);
+            if(lineUp.get(i).getPlayerPos().equals("D"))
+                sortedLineup[8]=lineUp.get(i);
+
+        }
+        //check which RB has higher salary to list first
+        if(sortedLineup[2].getPlayerSalary() > sortedLineup[1].getPlayerSalary()) {
+            temp=sortedLineup[1];
+            sortedLineup[1] = sortedLineup[2];
+            sortedLineup[2] = temp;
         }
 
         //WR salary check for sortting
-            double a=lineUp.get(5).getPlayerSalary();
-            double b=lineUp.get(6).getPlayerSalary();
-            double c=lineUp.get(7).getPlayerSalary();
-            
-        if(a>b&&a>c)
+            double a=sortedLineup[3].getPlayerSalary();
+            double b=sortedLineup[4].getPlayerSalary();
+            double c=sortedLineup[5].getPlayerSalary();
+
+        if(b>a&&b>c)
         {
-            sortedLineup[3]=lineUp.get(5);
-            if(b>c) {
-                sortedLineup[4] = lineUp.get(6);
-                sortedLineup[5] = lineUp.get(7);
-            }
-            else {
-                sortedLineup[4] = lineUp.get(7);
-                sortedLineup[5] = lineUp.get(6);
-            }
-        }
-        else if(b>a&&b>c)
-        {
-            sortedLineup[3]=lineUp.get(6);
-            if(a>c) {
-                sortedLineup[4] = lineUp.get(5);
-                sortedLineup[5] = lineUp.get(7);
-            }
-            else {
-                sortedLineup[4] = lineUp.get(7);
-                sortedLineup[5] = lineUp.get(5);
+            temp=sortedLineup[3];
+            sortedLineup[3] = sortedLineup[4];
+            sortedLineup[4]=temp;
+            if(c>a) {
+                temp=sortedLineup[4];
+                sortedLineup[4] = sortedLineup[5];
+                sortedLineup[5] = temp;
             }
         }
         else
         {
-            sortedLineup[3]=lineUp.get(7);
-            if(a>b) {
-                sortedLineup[4] = lineUp.get(5);
-                sortedLineup[5] = lineUp.get(6);
+            temp=sortedLineup[3];
+            sortedLineup[3] = sortedLineup[5];
+            sortedLineup[5]=temp;
+            if(b>a) {
+                temp=sortedLineup[4];
+                sortedLineup[4] = sortedLineup[5];
+                sortedLineup[5]=temp;
             }
-            else {
-                sortedLineup[4] = lineUp.get(6);
-                sortedLineup[5] = lineUp.get(5);
-            }
+
         }
-        
-        sortedLineup[6]=lineUp.get(1);
-        sortedLineup[7]=lineUp.get(8);
-        sortedLineup[8]=lineUp.get(0);
 
     }
     public void findFitness(){
@@ -206,7 +230,23 @@ public class lineupSet {
         System.out.println("FLEX: "+sortedLineup[7].getPlayerName());
         System.out.println("DEF: "+sortedLineup[8].getPlayerName());
     }
-    public Player[] getlineUp() {
-        return sortedLineup;
+    public int getLineupCost(){
+        return lineupCost;
     }
+    public void setFitnessPercent(double total, double previous){
+        fitnessPercent=fitness/total;
+        fitnessPercent=fitnessPercent+previous;
+    }
+    public double getFitnessPercent(){
+        return fitnessPercent;
+    }
+    public void clearLineUp(){
+        lineUp.clear();
+        sortedLineup=new Player[9];
+        setSize=0;
+
+
+    }
+
+
 }
