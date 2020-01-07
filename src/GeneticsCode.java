@@ -8,10 +8,14 @@ public class GeneticsCode {
 
         int genCount=1;
         int convergenceCheck=0;
+        int i=0;
 
-        while (!genetic.generationFull())  //populate
+        while (i<genetic.getGEN_SIZE())  //populate
         {
                 genetic.createLineup();
+                genetic.fullGeneration[i]=genetic.set;
+                genetic.set.clearLineUp();
+                i++;
         }
 
         while(genCount<=genetic.getLIFETIME()) {
@@ -24,8 +28,6 @@ public class GeneticsCode {
             System.out.println("\nProjected Points:" + df.format(genetic.fullGeneration[0].getFitness()));
             System.out.println("========================================================");
             genCount++;
-
-
         }
     }
 }

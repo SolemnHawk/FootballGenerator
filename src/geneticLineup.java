@@ -7,9 +7,9 @@ public class geneticLineup  extends lineupSet{
     Random rand = new Random();
     private boolean ELITISM=true; // keep best lineup into future
     private double MUTATE_RATE=1; // rate of mutation/100
-    private int GEN_SIZE=100; //# of lineups per generation
-    private int LIFETIME=1000; //# of Gen to run
-    private int chromosomeCount=0;
+    private int GEN_SIZE=20; //# of lineups per generation
+    private int LIFETIME=20; //# of Gen to run
+
 
     private double totalFitness=0;
     csvParser parser;
@@ -17,7 +17,9 @@ public class geneticLineup  extends lineupSet{
     ArrayList<ArrayList<Player>> playerSet;
     lineupSet[] fullGeneration=new lineupSet[GEN_SIZE];
     lineupSet[] generationCopy=new lineupSet[GEN_SIZE];
-    
+
+    lineupSet set = new lineupSet();
+
     public geneticLineup(csvParser parse){
         csvParser parser=parse;
         playerSet = parser.database.getSortedDatabase();
@@ -27,86 +29,53 @@ public class geneticLineup  extends lineupSet{
     }
     public void createLineup() {
 
-        lineupSet set = new lineupSet();
-
-
         int randomVal;
-        int count=0;
 
-        int lineupCounter = 9; //number of players in a full lineup
-
-        //add smaller cost positions first to create easier viability checks
-        while(set.getSetSize()==0) {
-            randomVal = rand.nextInt(playerSet.get(4).size()); //DEF addition first
-            if (set.playerViable(playerSet.get(4).get(randomVal)) == true) { //If player meets criteria add to lineup
-                set.addPlayer(playerSet.get(4).get(randomVal));
-                lineupCounter--;
-            }
-        }
-
-        while(set.getSetSize()==1) {
-            randomVal = rand.nextInt(playerSet.get(3).size()); //TE
-            if (set.playerViable(playerSet.get(3).get(randomVal)) == true) { //If player meets criteria add to lineup
-                set.addPlayer(playerSet.get(3).get(randomVal));
-                lineupCounter--;
-            }
-        }
-
-        while(set.getSetSize()==2) {
-            randomVal = rand.nextInt(playerSet.get(0).size()); //QB
-            if (set.playerViable(playerSet.get(0).get(randomVal)) == true) { //If player meets criteria add to lineup
-                set.addPlayer(playerSet.get(0).get(randomVal));
-                lineupCounter--;
-            }
-        }
-
-        while(set.getSetSize()<5) {
-            while (count < 2) {
-                randomVal = rand.nextInt(playerSet.get(1).size()); //RB
-                if (set.playerViable(playerSet.get(1).get(randomVal)) == true) { //If player meets criteria add to lineup
-                    set.addPlayer(playerSet.get(1).get(randomVal));
-                    lineupCounter--;
-                    count++;
+        while(set.getSetSize()!=9) {
+            //add smaller cost positions first to create easier viability checks
+            if (set.getSetSize() == 0) {
+                randomVal = rand.nextInt(playerSet.get(4).size()); //DEF addition first
+                if (set.playerViable(playerSet.get(4).get(randomVal)) == true) { //If player meets criteria add to lineup
+                    set.addPlayer(playerSet.get(4).get(randomVal));
                 }
+            } else if (set.getSetSize() == 1) {
+                randomVal = rand.nextInt(playerSet.get(3).size()); //TE
+                if (set.playerViable(playerSet.get(3).get(randomVal)) == true) { //If player meets criteria add to lineup
+                    set.addPlayer(playerSet.get(3).get(randomVal));
+                }
+            } else if (set.getSetSize() == 2) {
+                randomVal = rand.nextInt(playerSet.get(0).size()); //QB
+                if (set.playerViable(playerSet.get(0).get(randomVal)) == true) { //If player meets criteria add to lineup
+                    set.addPlayer(playerSet.get(0).get(randomVal));
+                }
+            } else if (set.getSetSize() == 3 || set.getSetSize() == 4) {
+                    randomVal = rand.nextInt(playerSet.get(1).size()); //RB
+                    if (set.playerViable(playerSet.get(1).get(randomVal)) == true) { //If player meets criteria add to lineup
+                        set.addPlayer(playerSet.get(1).get(randomVal));
+                    }
+            } else if (set.getSetSize() == 5 || set.getSetSize() == 6 || set.getSetSize() == 7) {
+                    randomVal = rand.nextInt(playerSet.get(2).size()); //WR
+                    if (set.playerViable(playerSet.get(2).get(randomVal)) == true) { //If player meets criteria add to lineup
+                        set.addPlayer(playerSet.get(2).get(randomVal));
+                    }
             }
-        }
-
-        count=0;
-        while(set.getSetSize()<8) {
-            while (count < 3) {
-                randomVal = rand.nextInt(playerSet.get(2).size()); //WR
+            //Selecting position for the flex
+            else if (set.getSetSize() == 8) {
+                randomVal = rand.nextInt(2);
+                if (randomVal == 0) { //flex will be a RB
+                    randomVal = rand.nextInt(playerSet.get(1).size());
+                    if (set.playerViable(playerSet.get(1).get(randomVal)) == true) { //If player meets criteria add to lineup
+                        set.addPlayer(playerSet.get(1).get(randomVal));
+                    }
+                } else
+                    randomVal = rand.nextInt(playerSet.get(2).size());
                 if (set.playerViable(playerSet.get(2).get(randomVal)) == true) { //If player meets criteria add to lineup
                     set.addPlayer(playerSet.get(2).get(randomVal));
-                    lineupCounter--;
-                    count++;
                 }
-            }
-        }
-        //Selecting position for the flex
-        while(set.getSetSize()<9) {
-            randomVal = rand.nextInt(2);
-            if (randomVal == 0) { //flex will be a RB
-                randomVal = rand.nextInt(playerSet.get(1).size());
-                if (set.playerViable(playerSet.get(1).get(randomVal)) == true) { //If player meets criteria add to lineup
-                    set.addPlayer(playerSet.get(1).get(randomVal));
-                    lineupCounter--;
-                }
-            } else
-                randomVal = rand.nextInt(playerSet.get(2).size());
-            if (set.playerViable(playerSet.get(2).get(randomVal)) == true) { //If player meets criteria add to lineup
-                set.addPlayer(playerSet.get(2).get(randomVal));
-                lineupCounter--;
             }
         }
         set.sortLineup();
         set.findFitness();
-        fullGeneration[chromosomeCount]=set;
-        chromosomeCount++;
-    }
-    public boolean generationFull(){
-        if (chromosomeCount<GEN_SIZE)
-            return false;
-        return true;
     }
     public int getGEN_SIZE(){return GEN_SIZE;}
     private int partition(lineupSet arr[], int low, int high) {
@@ -147,25 +116,26 @@ public class geneticLineup  extends lineupSet{
         for (int i=0;i<GEN_SIZE;i++) {
             fullGeneration[i].setFitnessPercent(totalFitness, previous);
             previous=fullGeneration[i].getFitnessPercent();
-
         }
 
     }
     public void evolveGeneration() {
             int lineupCounter = 0;
+
             generationCopy = fullGeneration.clone();
 
+            //clear current lineup to be overwritten
+            fullGeneration[lineupCounter] = new lineupSet();
 
-            //Take best Lineup First
+
+            //Take best Lineup First (take the best two?)
             if (ELITISM == true) {
                 fullGeneration[lineupCounter] = generationCopy[lineupCounter];
                 lineupCounter++;
             }
 
             while (lineupCounter != (GEN_SIZE)) {
-                //clear current lineup to be overwritten
 
-                fullGeneration[lineupCounter] = new lineupSet();
 
                 //Selection Step
                 double randSelect1 = rand.nextDouble(); //Parent 1
@@ -176,28 +146,27 @@ public class geneticLineup  extends lineupSet{
                 int parent2 = 0;
                 boolean parent2Check = false;
 
+
+
                 for (int i = 0; i < GEN_SIZE; i++) //increment and find first lineup above selection point, take the 1 right before
                 {
-                    if (randSelect1 < generationCopy[i].getFitnessPercent() && !parent1Check) {
+                    if (randSelect1 > generationCopy[i].getFitnessPercent() && !parent1Check) {
                         parent1 = i;
                         parent1Check = true;
                     }
-                    if (randSelect2 < generationCopy[i].getFitnessPercent() && !parent2Check) {
+                    if (randSelect2 > generationCopy[i].getFitnessPercent() && !parent2Check) {
                         parent2 = i;
                         parent2Check = true;
                     }
                 }
-
-//            System.out.println("Parent Lineup 1:");
-//            generationCopy[parent1].printLineup();
-//            System.out.println(generationCopy[parent1].getFitness());
-//            System.out.println();
-//            System.out.println("Parent Lineup 2:");
-//            generationCopy[parent2].printLineup();
-//            System.out.println(generationCopy[parent2].getFitness());
+                System.out.println(randSelect1);
+                System.out.println("Parent 1: " + generationCopy[parent1].getFitnessPercent());
+                System.out.println(randSelect2);
+                System.out.println("Parent 2: " + generationCopy[parent1].getFitnessPercent());
 
                 //Crossover
-                for (int i = 0; i < 9; i++) {  //increment through the entire lineup
+                int i=0;
+               while (fullGeneration[lineupCounter].getSetSize()!=9){  //increment through the entire lineup
 
                     int randPick = rand.nextInt(2); //50/50 chance to swap the current player if they fit
 
@@ -208,30 +177,12 @@ public class geneticLineup  extends lineupSet{
                             fullGeneration[lineupCounter].addPlayer(generationCopy[parent1].sortedLineup[i]);
                         else                                                                 //If neither matches, try and find a fit
                         {
-                            while (fullGeneration[lineupCounter].sortedLineup[i] == null) { //generate a new player based on position in error
-                                if (generationCopy[parent1].sortedLineup[i].getPlayerPos().equals("QB")) {
-                                    int randomVal = rand.nextInt(playerSet.get(0).size());
-                                    if (fullGeneration[lineupCounter].playerViable(playerSet.get(0).get(randomVal)))
-                                        fullGeneration[lineupCounter].addPlayer(playerSet.get(0).get(randomVal));
-                                } else if (generationCopy[parent1].sortedLineup[i].getPlayerPos().equals("RB")) {
-                                    int randomVal = rand.nextInt(playerSet.get(1).size());
-                                    if (fullGeneration[lineupCounter].playerViable(playerSet.get(1).get(randomVal)))
-                                        fullGeneration[lineupCounter].addPlayer(playerSet.get(1).get(randomVal));
-                                } else if (generationCopy[parent1].sortedLineup[i].getPlayerPos().equals("WR")) {
-                                    int randomVal = rand.nextInt(playerSet.get(2).size());
-                                    if (fullGeneration[lineupCounter].playerViable(playerSet.get(2).get(randomVal)))
-                                        fullGeneration[lineupCounter].addPlayer(playerSet.get(2).get(randomVal));
-                                } else if (generationCopy[parent1].sortedLineup[i].getPlayerPos().equals("TE")) {
-                                    int randomVal = rand.nextInt(playerSet.get(3).size());
-                                    if (fullGeneration[lineupCounter].playerViable(playerSet.get(3).get(randomVal)))
-                                        fullGeneration[lineupCounter].addPlayer(playerSet.get(3).get(randomVal));
-                                } else if (generationCopy[parent1].sortedLineup[i].getPlayerPos().equals("D")) {
-                                    int randomVal = rand.nextInt(playerSet.get(4).size());
-                                    if (fullGeneration[lineupCounter].playerViable(playerSet.get(4).get(randomVal)))
-                                        fullGeneration[lineupCounter].addPlayer(playerSet.get(4).get(randomVal));
-                                }
-                                //   System.out.println(fullGeneration[lineupCounter].sortedLineup[i].getPlayerName() + " was mutated");
-                            }
+                            fullGeneration[lineupCounter].clearLineUp();
+                            createLineup();
+                            fullGeneration[lineupCounter]=set;
+                            System.out.println("Lineup " + " was mutated");
+                            lineupCounter++;
+                            i=0;
                         }
                     } else if (randPick == 0) {
                         if (fullGeneration[lineupCounter].playerViable(generationCopy[parent1].sortedLineup[i]))  //if player is viable in new gen, add to new lineup
@@ -240,32 +191,15 @@ public class geneticLineup  extends lineupSet{
                             fullGeneration[lineupCounter].addPlayer(generationCopy[parent2].sortedLineup[i]);
                         else                                                                 //If neither matches, try and find a fit
                         {
-                            while (fullGeneration[lineupCounter].sortedLineup[i] == null) {
-                                if (generationCopy[parent1].sortedLineup[i].getPlayerPos().equals("QB")) {
-                                    int randomVal = rand.nextInt(playerSet.get(0).size());
-                                    if (fullGeneration[lineupCounter].playerViable(playerSet.get(0).get(randomVal)))
-                                        fullGeneration[lineupCounter].addPlayer(playerSet.get(0).get(randomVal));
-                                } else if (generationCopy[parent1].sortedLineup[i].getPlayerPos().equals("RB")) {
-                                    int randomVal = rand.nextInt(playerSet.get(1).size());
-                                    if (fullGeneration[lineupCounter].playerViable(playerSet.get(1).get(randomVal)))
-                                        fullGeneration[lineupCounter].addPlayer(playerSet.get(1).get(randomVal));
-                                } else if (generationCopy[parent1].sortedLineup[i].getPlayerPos().equals("WR")) {
-                                    int randomVal = rand.nextInt(playerSet.get(2).size());
-                                    if (fullGeneration[lineupCounter].playerViable(playerSet.get(2).get(randomVal)))
-                                        fullGeneration[lineupCounter].addPlayer(playerSet.get(2).get(randomVal));
-                                } else if (generationCopy[parent1].sortedLineup[i].getPlayerPos().equals("TE")) {
-                                    int randomVal = rand.nextInt(playerSet.get(3).size());
-                                    if (fullGeneration[lineupCounter].playerViable(playerSet.get(3).get(randomVal)))
-                                        fullGeneration[lineupCounter].addPlayer(playerSet.get(3).get(randomVal));
-                                } else if (generationCopy[parent1].sortedLineup[i].getPlayerPos().equals("D")) {
-                                    int randomVal = rand.nextInt(playerSet.get(4).size());
-                                    if (fullGeneration[lineupCounter].playerViable(playerSet.get(4).get(randomVal)))
-                                        fullGeneration[lineupCounter].addPlayer(playerSet.get(4).get(randomVal));
-                                }
-                                // System.out.println(fullGeneration[lineupCounter].sortedLineup[i].getPlayerName() + " was mutated");
-                            }
+                            fullGeneration[lineupCounter].clearLineUp();
+                            createLineup();
+                            fullGeneration[lineupCounter]=set;
+                            System.out.println("Lineup " + " was mutated");
+                            lineupCounter++;
+                            i=0;
                         }
                     }
+                    i++;
                 }
 
                 fullGeneration[lineupCounter].sortLineup(); //sort into normal order

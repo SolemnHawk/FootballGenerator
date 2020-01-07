@@ -24,14 +24,22 @@ public class lineupSet {
     public int getSetSize(){return setSize;}
     public boolean playerViable(Player newPlayer) {
 
-        if(viableCount>200)//infinite loop break
+        if(viableCount>300)//infinite loop break
         {
             for(int i=0;i<lineUp.size();i++)
                 System.out.println(lineUp.get(i).getPlayerName());
             clearLineUp();
+            viableCount=0;
             System.out.println("I'm Stuck in a loop");
             return false;
         }
+
+        //Dont select players that wont score
+        if ((newPlayer.getProjection())<1) {
+            viableCount++;
+            return false;
+        }
+
         //If player already is in lineup, do not add
         if (lineUp.size() != 0) {
             for (int i = 0; i < lineUp.size(); i++)
@@ -40,14 +48,6 @@ public class lineupSet {
                     return false;
                 }
         }
-
-        //Dont select players that wont score
-        if ((newPlayer.getProjection())<1) {
-            viableCount++;
-            return false;
-        }
-        //Check salary cost limits
-
         //Player wont break salaray cap
         if (lineupCost + newPlayer.getPlayerSalary() > SALARY_CAP) {
             viableCount++;
@@ -78,7 +78,6 @@ public class lineupSet {
             }
 
         }
-
         viableCount=0;
         return true;
     }
@@ -244,7 +243,12 @@ public class lineupSet {
         lineUp.clear();
         sortedLineup=new Player[9];
         setSize=0;
-
+        lineupCost=0;
+        lineupProj=0;
+        for (int i=0;i<posCounter.length;i++)
+        {
+            posCounter[i]=0;
+        }
 
     }
 
