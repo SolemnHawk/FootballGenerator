@@ -2,24 +2,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-public class geneticLineup  extends lineupSet{
+public class geneticLineup extends lineupSet{
 
     private Random rand;
     private boolean ELITISM=true; // keep best lineup into future
     private double MUTATE_RATE=1; // rate of mutation/100
-    private int GEN_SIZE=10; //# of lineups per generation
-    private int LIFETIME=10; //# of Gen to run
+    private int GEN_SIZE=100; //# of lineups per generation
+    private int LIFETIME=100; //# of Gen to run
 
 
-    private double totalFitness=0;
+
     csvParser parser;
 
     ArrayList<ArrayList<Player>> playerSet;
     lineupSet[] fullGeneration=new lineupSet[GEN_SIZE];
-    lineupSet[] generationCopy=new lineupSet[GEN_SIZE];
+    lineupSet[] nextGeneration=new lineupSet[GEN_SIZE];
 
     lineupSet set;
-    int lineupCount=0;
 
     public geneticLineup(csvParser parse){
         rand = new Random();
@@ -29,10 +28,10 @@ public class geneticLineup  extends lineupSet{
     public int getLIFETIME(){
         return LIFETIME;
     }
-    public void createLineup() {
+    public void createLineup(int lineupCount) {
 
         int randomVal;
-        lineupSet set = new lineupSet();
+        set = new lineupSet();
 
         while(set.getSetSize()<=8) {
             //add smaller cost positions first to create easier viability checks
@@ -78,9 +77,7 @@ public class geneticLineup  extends lineupSet{
             }
         }
         set.sortLineup();
-        set.findFitness();
         fullGeneration[lineupCount]=set;
-        lineupCount++;
     }
     public int getGEN_SIZE(){return GEN_SIZE;}
     private int partition(lineupSet arr[], int low, int high) {
@@ -114,7 +111,7 @@ public class geneticLineup  extends lineupSet{
     }
     void calculateFitnessRate() {
         double previous=0.0;
-
+        double totalFitness=0.0;
         for (int i=0;i<GEN_SIZE;i++)
             totalFitness+=fullGeneration[i].getFitness();
 
@@ -125,25 +122,15 @@ public class geneticLineup  extends lineupSet{
     }
     public void evolveGeneration() {
             int lineupCounter = 0;
-
-            generationCopy = fullGeneration.clone();
-
-            //clear current lineup to be overwritten
-            fullGeneration[lineupCounter] = new lineupSet();
+            nextGeneration=new lineupSet[GEN_SIZE];
 
             //Take best Lineup First (take the best two?)
             if (ELITISM == true) {
-                fullGeneration[lineupCounter] = generationCopy[lineupCounter];
+                nextGeneration[lineupCounter] = fullGeneration[lineupCounter];
                 lineupCounter++;
             }
 
             while (lineupCounter != (GEN_SIZE)) {
-
-                fullGeneration[lineupCounter] = new lineupSet();
-
-                generationCopy[lineupCounter].printLineup();
-                System.out.println(generationCopy[lineupCounter].getFitness());
-                System.out.println("");
 
                 //Selection Step
                 double randSelect1 = rand.nextDouble(); //Parent 1
@@ -154,62 +141,61 @@ public class geneticLineup  extends lineupSet{
                 int parent2 = 0;
                 boolean parent2Check = false;
 
-
-
-                for (int i = 0; i < GEN_SIZE; i++) //increment and find first lineup above selection point, take the 1 right before
-                {
-                    if (randSelect1 > generationCopy[i].getFitnessPercent() && !parent1Check) {
+                int i=0;
+                while((!parent1Check) || (!parent2Check)) //increment and find first lineup above selection point, take the 1 right before
+                { double fitnessTest=fullGeneration[i].getFitnessPercent();
+                    if (randSelect1 < fitnessTest && !parent1Check) {
                         parent1 = i;
                         parent1Check = true;
                     }
-                    if (randSelect2 > generationCopy[i].getFitnessPercent() && !parent2Check) {
+                    if (randSelect2 < fitnessTest && !parent2Check) {
                         parent2 = i;
                         parent2Check = true;
                     }
+                    i++;
                 }
 
+
+                nextGeneration[lineupCounter]=new lineupSet();
                 //Crossover
-                int i=0;
-               while (fullGeneration[lineupCounter].getSetSize()!=9){  //increment through the entire lineup
+                i=0;
+               while (nextGeneration[lineupCounter].getSetSize()!=9){  //increment through the entire lineup
 
                     int randPick = rand.nextInt(2); //50/50 chance to swap the current player if they fit
 
                     if (randPick == 1) {
-                        if (fullGeneration[lineupCounter].playerViable(generationCopy[parent2].sortedLineup[i]))  //if player is viable in new gen, add to new lineup
-                            fullGeneration[lineupCounter].addPlayer(generationCopy[parent2].sortedLineup[i]);
-                        else if (fullGeneration[lineupCounter].playerViable(generationCopy[parent1].sortedLineup[i])) //If chosen player wasnt viable, is the other lineup?
-                            fullGeneration[lineupCounter].addPlayer(generationCopy[parent1].sortedLineup[i]);
+                        if (nextGeneration[lineupCounter].playerViable(fullGeneration[parent2].sortedLineup[i]))  //if player is viable in new gen, add to new lineup
+                            nextGeneration[lineupCounter].addPlayer(fullGeneration[parent2].sortedLineup[i]);
+                        else if (nextGeneration[lineupCounter].playerViable(fullGeneration[parent1].sortedLineup[i])) //If chosen player wasnt viable, is the other lineup?
+                            nextGeneration[lineupCounter].addPlayer(fullGeneration[parent1].sortedLineup[i]);
                         else                                                                 //If neither matches, try and find a fit
                         {
-                            fullGeneration[lineupCounter].clearLineUp();
-                            createLineup();
-                            fullGeneration[lineupCounter]=set;
-                            System.out.println("Lineup " + " was mutated");
-                            lineupCounter++;
-                            i=0;
+                            nextGeneration[lineupCounter].clearLineUp();
+                            createLineup(lineupCounter);
+                            nextGeneration[lineupCounter]=set;
+                            //System.out.println("\nLineup " +lineupCounter+ " was mutated\n");
                         }
                     } else if (randPick == 0) {
-                        if (fullGeneration[lineupCounter].playerViable(generationCopy[parent1].sortedLineup[i]))  //if player is viable in new gen, add to new lineup
-                            fullGeneration[lineupCounter].addPlayer(generationCopy[parent1].sortedLineup[i]);
-                        else if (fullGeneration[lineupCounter].playerViable(generationCopy[parent2].sortedLineup[i])) //If chosen player wasnt viable, is the other lineup?
-                            fullGeneration[lineupCounter].addPlayer(generationCopy[parent2].sortedLineup[i]);
+                        if (nextGeneration[lineupCounter].playerViable(fullGeneration[parent1].sortedLineup[i]))  //if player is viable in new gen, add to new lineup
+                            nextGeneration[lineupCounter].addPlayer(fullGeneration[parent1].sortedLineup[i]);
+                        else if (nextGeneration[lineupCounter].playerViable(fullGeneration[parent2].sortedLineup[i])) //If chosen player wasnt viable, is the other lineup?
+                            nextGeneration[lineupCounter].addPlayer(fullGeneration[parent2].sortedLineup[i]);
                         else                                                                 //If neither matches, try and find a fit
                         {
-                            fullGeneration[lineupCounter].clearLineUp();
-                            createLineup();
-                            fullGeneration[lineupCounter]=set;
-                            System.out.println("Lineup " + " was mutated");
-                            lineupCounter++;
-                            i=0;
+                            nextGeneration[lineupCounter].clearLineUp();
+                            createLineup(lineupCounter);
+                            nextGeneration[lineupCounter]=set;
+                            //System.out.println("\nLineup " +lineupCounter+ " was mutated\n");
                         }
                     }
                     i++;
                 }
 
-                fullGeneration[lineupCounter].sortLineup(); //sort into normal order
-                fullGeneration[lineupCounter].findFitness();
+                nextGeneration[lineupCounter].sortLineup(); //sort into normal order
+                nextGeneration[lineupCounter].findFitness();
                 lineupCounter++;
             }
+            fullGeneration=nextGeneration;
          }
 }
 

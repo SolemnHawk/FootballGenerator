@@ -103,22 +103,17 @@ public class updateDatabaseWindow extends startWindow{
 //                dialog.setVisible(true);
 //                String file=dialog.getFile();
 
-//                if(file.contains("QB"))
-//                    QBprojectionUpdate.setVisible(true);
-//                else if(file.contains("RB"))
-//                    RBprojectionUpdate.setVisible(true);
-//                else if(file.contains("WR"))
-//                    WRprojectionUpdate.setVisible(true);
-//                else if(file.contains("TE"))
-//                    TEprojectionUpdate.setVisible(true);
-//                else if(file.contains("DST"))
-//                    DSTprojectionUpdate.setVisible(true);
-
                 parser.parseProjection("FantasyPros_Fantasy_Football_Projections_WR.csv");
                 parser.parseProjection("FantasyPros_Fantasy_Football_Projections_QB.csv");
                 parser.parseProjection("FantasyPros_Fantasy_Football_Projections_RB.csv");
                 parser.parseProjection("FantasyPros_Fantasy_Football_Projections_TE.csv");
                 parser.parseProjection("FantasyPros_Fantasy_Football_Projections_DST.csv");
+
+                QBprojectionUpdate.setVisible(true);
+                RBprojectionUpdate.setVisible(true);
+                WRprojectionUpdate.setVisible(true);
+                TEprojectionUpdate.setVisible(true);
+                DSTprojectionUpdate.setVisible(true);
 
 //
             }

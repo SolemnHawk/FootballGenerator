@@ -196,60 +196,60 @@ public class LineupWindow {
             @Override
             public void actionPerformed(ActionEvent arg0) {
 
-                genetic.runGenetic(parser);
+                lineupSet lineup=genetic.runGenetic(parser);
 
-                /*
-                QB.setText("QB: "+ lineup[0].getPlayerName());
-                QBTeam.setText(lineup[0].getPlayerTeam());
-                QBSalary.setText(""+lineup[0].getPlayerSalary());
-                QBProj.setText(""+lineup[0].getProjection());
+                
+                QB.setText("QB: "+ lineup.lineUp.get(0).getPlayerName());
+                QBTeam.setText(lineup.lineUp.get(0).getPlayerTeam());
+                QBSalary.setText(""+lineup.lineUp.get(0).getPlayerSalary());
+                QBProj.setText(""+lineup.lineUp.get(0).getProjection());
 
-                RB1.setText("RB1: "+ lineup[1].getPlayerName());
-                RB1Team.setText(lineup[1].getPlayerTeam());
-                RB1Salary.setText(""+lineup[1].getPlayerSalary());
-                RB1Proj.setText(""+lineup[1].getProjection());
+                RB1.setText("RB1: "+ lineup.lineUp.get(1).getPlayerName());
+                RB1Team.setText(lineup.lineUp.get(1).getPlayerTeam());
+                RB1Salary.setText(""+lineup.lineUp.get(1).getPlayerSalary());
+                RB1Proj.setText(""+lineup.lineUp.get(1).getProjection());
 
-                RB2.setText("RB2: "+ lineup[2].getPlayerName());
-                RB2Team.setText(lineup[2].getPlayerTeam());
-                RB2Salary.setText(""+lineup[2].getPlayerSalary());
-                RB2Proj.setText(""+lineup[2].getProjection());
+                RB2.setText("RB2: "+ lineup.lineUp.get(2).getPlayerName());
+                RB2Team.setText(lineup.lineUp.get(2).getPlayerTeam());
+                RB2Salary.setText(""+lineup.lineUp.get(2).getPlayerSalary());
+                RB2Proj.setText(""+lineup.lineUp.get(2).getProjection());
 
-                WR1.setText("WR1: "+ lineup[3].getPlayerName());
-                WR1Team.setText(lineup[3].getPlayerTeam());
-                WR1Salary.setText(""+lineup[3].getPlayerSalary());
-                WR1Proj.setText(""+lineup[3].getProjection());
+                WR1.setText("WR1: "+ lineup.lineUp.get(3).getPlayerName());
+                WR1Team.setText(lineup.lineUp.get(3).getPlayerTeam());
+                WR1Salary.setText(""+lineup.lineUp.get(3).getPlayerSalary());
+                WR1Proj.setText(""+lineup.lineUp.get(3).getProjection());
 
-                WR2.setText("WR2: "+ lineup[4].getPlayerName());
-                WR2Team.setText(lineup[4].getPlayerTeam());
-                WR2Salary.setText(""+lineup[4].getPlayerSalary());
-                WR2Proj.setText(""+lineup[4].getProjection());
+                WR2.setText("WR2: "+ lineup.lineUp.get(4).getPlayerName());
+                WR2Team.setText(lineup.lineUp.get(4).getPlayerTeam());
+                WR2Salary.setText(""+lineup.lineUp.get(4).getPlayerSalary());
+                WR2Proj.setText(""+lineup.lineUp.get(4).getProjection());
 
-                WR3.setText("WR3: "+ lineup[5].getPlayerName());
-                WR3Team.setText(lineup[5].getPlayerTeam());
-                WR3Salary.setText(""+lineup[5].getPlayerSalary());
-                WR3Proj.setText(""+lineup[5].getProjection());
+                WR3.setText("WR3: "+ lineup.lineUp.get(5).getPlayerName());
+                WR3Team.setText(lineup.lineUp.get(5).getPlayerTeam());
+                WR3Salary.setText(""+lineup.lineUp.get(5).getPlayerSalary());
+                WR3Proj.setText(""+lineup.lineUp.get(5).getProjection());
 
-                TE.setText("TE: "+ lineup[6].getPlayerName());
-                TETeam.setText(lineup[6].getPlayerTeam());
-                TESalary.setText(""+lineup[6].getPlayerSalary());
-                TEProj.setText(""+lineup[6].getProjection());
+                TE.setText("TE: "+ lineup.lineUp.get(6).getPlayerName());
+                TETeam.setText(lineup.lineUp.get(6).getPlayerTeam());
+                TESalary.setText(""+lineup.lineUp.get(6).getPlayerSalary());
+                TEProj.setText(""+lineup.lineUp.get(6).getProjection());
 
-                FLEX.setText("FLEX: "+ lineup[7].getPlayerName());
-                FLEXTeam.setText(lineup[7].getPlayerTeam());
-                FLEXSalary.setText(""+lineup[7].getPlayerSalary());
-                FLEXProj.setText(""+lineup[7].getProjection());
+                FLEX.setText("FLEX: "+ lineup.lineUp.get(7).getPlayerName());
+                FLEXTeam.setText(lineup.lineUp.get(7).getPlayerTeam());
+                FLEXSalary.setText(""+lineup.lineUp.get(7).getPlayerSalary());
+                FLEXProj.setText(""+lineup.lineUp.get(7).getProjection());
 
-                DEF.setText("DEF: "+ lineup[8].getPlayerName());
-                DEFTeam.setText(lineup[8].getPlayerTeam());
-                DEFSalary.setText(""+lineup[8].getPlayerSalary());
-                DEFProj.setText(""+lineup[8].getProjection());
+                DEF.setText("DEF: "+ lineup.lineUp.get(8).getPlayerName());
+                DEFTeam.setText(lineup.lineUp.get(8).getPlayerTeam());
+                DEFSalary.setText(""+lineup.lineUp.get(8).getPlayerSalary());
+                DEFProj.setText(""+lineup.lineUp.get(8).getProjection());
 
-                Totals.setText("     Total Cost: $"+ (lineup[0].getPlayerSalary()+lineup[1].getPlayerSalary()+lineup[2].getPlayerSalary()+lineup[3].getPlayerSalary()+lineup[4].getPlayerSalary()
-                        +lineup[5].getPlayerSalary()+lineup[6].getPlayerSalary()+lineup[7].getPlayerSalary()+lineup[8].getPlayerSalary())
+                Totals.setText("     Total Cost: $"+ (lineup.lineUp.get(0).getPlayerSalary()+lineup.lineUp.get(1).getPlayerSalary()+lineup.lineUp.get(2).getPlayerSalary()+lineup.lineUp.get(3).getPlayerSalary()+lineup.lineUp.get(4).getPlayerSalary()
+                        +lineup.lineUp.get(5).getPlayerSalary()+lineup.lineUp.get(6).getPlayerSalary()+lineup.lineUp.get(7).getPlayerSalary()+lineup.lineUp.get(8).getPlayerSalary())
                 +"                  Projected Points: " +
-                        ""+ (lineup[0].getProjection()+lineup[1].getProjection()+lineup[2].getProjection()+lineup[3].getProjection()+lineup[4].getProjection()
-                        +lineup[5].getProjection()+lineup[6].getProjection()+lineup[7].getProjection()+lineup[8].getProjection()));
-                Totals.setVisible(true); */
+                        ""+ (lineup.lineUp.get(0).getProjection()+lineup.lineUp.get(1).getProjection()+lineup.lineUp.get(2).getProjection()+lineup.lineUp.get(3).getProjection()+lineup.lineUp.get(4).getProjection()
+                        +lineup.lineUp.get(5).getProjection()+lineup.lineUp.get(6).getProjection()+lineup.lineUp.get(7).getProjection()+lineup.lineUp.get(8).getProjection()));
+                Totals.setVisible(true); 
             }
         });
 
