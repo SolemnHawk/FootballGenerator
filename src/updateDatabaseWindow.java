@@ -92,6 +92,7 @@ public class updateDatabaseWindow extends startWindow{
                 String file=dialog.getFile();
                 parser.parseSalary(file);
                 salaryUpdate.setVisible(true);
+                updateSalaryButton.setEnabled(false);
 
             }
         });

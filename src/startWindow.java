@@ -25,20 +25,20 @@ public class startWindow {
         header.setText("<html>Football Money Maker!<br/> Here you may:.</html>");
         startFrame.add(header);
 
-        //New Job button
-        JButton newRosterButton = new JButton("Generate a roster");
-        newRosterButton.setBounds(20, 80, 150, 40);
+
+        JButton updateRosterButton = new JButton("1. Update Database");
+        updateRosterButton.setBounds(20, 80, 150, 40);
+        startFrame.add(updateRosterButton);
+
+        JButton newRosterButton = new JButton("2. Generate a Roster");
+        newRosterButton.setBounds(20, 180, 150, 40);
         startFrame.add(newRosterButton);
 
-        //Edit Job button
-        JButton editRosterButton = new JButton("Manually build");
-        editRosterButton.setBounds(20, 180, 150, 40);
+        JButton editRosterButton = new JButton("3. Manually Build");
+        editRosterButton.setBounds(20, 280, 150, 40);
         startFrame.add(editRosterButton);
+        editRosterButton.setEnabled(false);
 
-        //Print Job button
-        JButton updateRosterButton = new JButton("Update Database");
-        updateRosterButton.setBounds(20, 280, 150, 40);
-        startFrame.add(updateRosterButton);
 
         startFrame.setSize(250,400);
         startFrame.setLocationRelativeTo(null);
@@ -51,7 +51,9 @@ public class startWindow {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 startFrame.setVisible(false);
+                parser.database.trimDatabase();
                 parser.database.sortDatabase();
+ //               parser.database.printPlayers();
                 new LineupWindow(parser);
             }
         });

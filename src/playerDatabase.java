@@ -47,27 +47,27 @@ public class playerDatabase {
         System.out.println("QB's");
         for (int i=0;i<sortedSet.get(0).size();i++)
         {
-            System.out.println(sortedSet.get(0).get(i).getPlayerName());
+            System.out.println(sortedSet.get(0).get(i).getPlayerName()+ " "+ sortedSet.get(0).get(i).getProjection());
         }
         System.out.println("\n\n\nRB's");
         for (int i=0;i<sortedSet.get(1).size();i++)
         {
-            System.out.println(sortedSet.get(1).get(i).getPlayerName());
+            System.out.println(sortedSet.get(1).get(i).getPlayerName()+ " "+ sortedSet.get(1).get(i).getProjection());
         }
         System.out.println("\n\n\nWR's");
         for (int i=0;i<sortedSet.get(2).size();i++)
         {
-            System.out.println(sortedSet.get(2).get(i).getPlayerName());
+            System.out.println(sortedSet.get(2).get(i).getPlayerName()+ " "+ sortedSet.get(2).get(i).getProjection());
         }
         System.out.println("\n\n\nTE's");
         for (int i=0;i<sortedSet.get(3).size();i++)
         {
-            System.out.println(sortedSet.get(3).get(i).getPlayerName());
+            System.out.println(sortedSet.get(3).get(i).getPlayerName()+ " "+ sortedSet.get(3).get(i).getProjection());
         }
         System.out.println("\n\n\nDEF's");
         for (int i=0;i<sortedSet.get(4).size();i++)
         {
-            System.out.println(sortedSet.get(4).get(i).getPlayerName());
+            System.out.println(sortedSet.get(4).get(i).getPlayerName()+ " "+ sortedSet.get(4).get(i).getProjection());
         }
     }
 
@@ -96,6 +96,15 @@ public class playerDatabase {
         sortedSet.add(wrList);
         sortedSet.add(teList);
         sortedSet.add(defList);
+    }
+    public void trimDatabase(){
+        for (int i=0;i<playerSet.size();i++)
+        {
+            if (playerSet.get(i).getProjection()<1.0) {
+                playerSet.remove(i);
+                i = i - 1;
+            }
+        }
     }
 
     public ArrayList<ArrayList<Player>> getSortedDatabase(){

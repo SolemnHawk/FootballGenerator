@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class geneticLineup  extends lineupSet{
 
-    Random rand = new Random();
+    private Random rand;
     private boolean ELITISM=true; // keep best lineup into future
     private double MUTATE_RATE=1; // rate of mutation/100
-    private int GEN_SIZE=20; //# of lineups per generation
-    private int LIFETIME=20; //# of Gen to run
+    private int GEN_SIZE=10; //# of lineups per generation
+    private int LIFETIME=10; //# of Gen to run
 
 
     private double totalFitness=0;
@@ -18,9 +18,11 @@ public class geneticLineup  extends lineupSet{
     lineupSet[] fullGeneration=new lineupSet[GEN_SIZE];
     lineupSet[] generationCopy=new lineupSet[GEN_SIZE];
 
-    lineupSet set = new lineupSet();
+    lineupSet set;
+    int lineupCount=0;
 
     public geneticLineup(csvParser parse){
+        rand = new Random();
         csvParser parser=parse;
         playerSet = parser.database.getSortedDatabase();
     }
@@ -30,8 +32,9 @@ public class geneticLineup  extends lineupSet{
     public void createLineup() {
 
         int randomVal;
+        lineupSet set = new lineupSet();
 
-        while(set.getSetSize()!=9) {
+        while(set.getSetSize()<=8) {
             //add smaller cost positions first to create easier viability checks
             if (set.getSetSize() == 0) {
                 randomVal = rand.nextInt(playerSet.get(4).size()); //DEF addition first
@@ -76,6 +79,8 @@ public class geneticLineup  extends lineupSet{
         }
         set.sortLineup();
         set.findFitness();
+        fullGeneration[lineupCount]=set;
+        lineupCount++;
     }
     public int getGEN_SIZE(){return GEN_SIZE;}
     private int partition(lineupSet arr[], int low, int high) {
@@ -115,9 +120,8 @@ public class geneticLineup  extends lineupSet{
 
         for (int i=0;i<GEN_SIZE;i++) {
             fullGeneration[i].setFitnessPercent(totalFitness, previous);
-            previous=fullGeneration[i].getFitnessPercent();
+            previous = fullGeneration[i].getFitnessPercent();
         }
-
     }
     public void evolveGeneration() {
             int lineupCounter = 0;
@@ -127,7 +131,6 @@ public class geneticLineup  extends lineupSet{
             //clear current lineup to be overwritten
             fullGeneration[lineupCounter] = new lineupSet();
 
-
             //Take best Lineup First (take the best two?)
             if (ELITISM == true) {
                 fullGeneration[lineupCounter] = generationCopy[lineupCounter];
@@ -136,6 +139,11 @@ public class geneticLineup  extends lineupSet{
 
             while (lineupCounter != (GEN_SIZE)) {
 
+                fullGeneration[lineupCounter] = new lineupSet();
+
+                generationCopy[lineupCounter].printLineup();
+                System.out.println(generationCopy[lineupCounter].getFitness());
+                System.out.println("");
 
                 //Selection Step
                 double randSelect1 = rand.nextDouble(); //Parent 1
@@ -159,10 +167,6 @@ public class geneticLineup  extends lineupSet{
                         parent2Check = true;
                     }
                 }
-                System.out.println(randSelect1);
-                System.out.println("Parent 1: " + generationCopy[parent1].getFitnessPercent());
-                System.out.println(randSelect2);
-                System.out.println("Parent 2: " + generationCopy[parent1].getFitnessPercent());
 
                 //Crossover
                 int i=0;

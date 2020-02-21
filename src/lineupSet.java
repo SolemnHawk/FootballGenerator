@@ -26,20 +26,11 @@ public class lineupSet {
 
         if(viableCount>300)//infinite loop break
         {
-            for(int i=0;i<lineUp.size();i++)
-                System.out.println(lineUp.get(i).getPlayerName());
             clearLineUp();
-            viableCount=0;
-            System.out.println("I'm Stuck in a loop");
+            viableCount = 0;
+            System.out.println("I was stuck in a loop");
             return false;
         }
-
-        //Dont select players that wont score
-        if ((newPlayer.getProjection())<1) {
-            viableCount++;
-            return false;
-        }
-
         //If player already is in lineup, do not add
         if (lineUp.size() != 0) {
             for (int i = 0; i < lineUp.size(); i++)
@@ -48,6 +39,14 @@ public class lineupSet {
                     return false;
                 }
         }
+
+        //Dont select players that wont score
+        if ((newPlayer.getProjection())<1) {
+            viableCount++;
+            return false;
+        }
+        //Check salary cost limits
+
         //Player wont break salaray cap
         if (lineupCost + newPlayer.getPlayerSalary() > SALARY_CAP) {
             viableCount++;
@@ -56,14 +55,14 @@ public class lineupSet {
 
         //Player will not prevent new additions from breaking cap
         if(lineUp.size()!=9)
-            if ((SALARY_CAP-lineupCost+newPlayer.getPlayerSalary()/(9-lineUp.size()))<4600) {
+            if ((SALARY_CAP-lineupCost+newPlayer.getPlayerSalary())<4500) {
                 viableCount++;
                 return false;
             }
 
         String playerPos = newPlayer.getPlayerPos();
 
-         if(playerPos.equals("RB")) {
+        if(playerPos.equals("RB")) {
             if (posCounter[1] >= 2 && posCounter[5]==1) //if RB is full, check Flex, if full, dont add
             {
                 viableCount++;
@@ -78,6 +77,7 @@ public class lineupSet {
             }
 
         }
+
         viableCount=0;
         return true;
     }
@@ -182,9 +182,9 @@ public class lineupSet {
         }
 
         //WR salary check for sortting
-            double a=sortedLineup[3].getPlayerSalary();
-            double b=sortedLineup[4].getPlayerSalary();
-            double c=sortedLineup[5].getPlayerSalary();
+        double a=sortedLineup[3].getPlayerSalary();
+        double b=sortedLineup[4].getPlayerSalary();
+        double c=sortedLineup[5].getPlayerSalary();
 
         if(b>a&&b>c)
         {
@@ -240,15 +240,16 @@ public class lineupSet {
         return fitnessPercent;
     }
     public void clearLineUp(){
+        posCounter=new int[6];
         lineUp.clear();
+        fitness=0.0;
+        fitnessPercent=0.0;
         sortedLineup=new Player[9];
-        setSize=0;
         lineupCost=0;
-        lineupProj=0;
-        for (int i=0;i<posCounter.length;i++)
-        {
-            posCounter[i]=0;
-        }
+        lineupProj=0.0;
+        setSize=0;
+        viableCount=0;
+
 
     }
 
