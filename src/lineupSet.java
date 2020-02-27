@@ -28,7 +28,6 @@ public class lineupSet {
         {
             clearLineUp();
             viableCount = 0;
-            System.out.println("I was stuck in a loop");
             return false;
         }
         //If player already is in lineup, do not add

@@ -7,8 +7,9 @@ public class geneticLineup extends lineupSet{
     private Random rand;
     private boolean ELITISM=true; // keep best lineup into future
     private double MUTATE_RATE=1; // rate of mutation/100
-    private int GEN_SIZE=100; //# of lineups per generation
-    private int LIFETIME=100; //# of Gen to run
+    private int GEN_SIZE=300; //# of lineups per generation
+    private int LIFETIME=1000; //# of Gen to run
+    private int optimizationCutoff=(LIFETIME/10);
 
 
 
@@ -80,6 +81,7 @@ public class geneticLineup extends lineupSet{
         fullGeneration[lineupCount]=set;
     }
     public int getGEN_SIZE(){return GEN_SIZE;}
+    public int getCutoff(){return optimizationCutoff;}
     private int partition(lineupSet arr[], int low, int high) {
         double pivot =  arr[high].getFitness();
         int i = (low-1); // index of smaller element

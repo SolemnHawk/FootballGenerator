@@ -5,16 +5,16 @@ import java.awt.event.ActionListener;
 import javax.imageio.*;
 import java.io.IOException;
 
-public class updateDatabaseWindow extends startWindow{
+public class updateDatabaseWindow {
 
 
-    updateDatabaseWindow() {
+    updateDatabaseWindow(csvParser parser) {
 
 
         FileDialog dialog=new FileDialog((Frame)null, "Select Salary File");
 
-        JFrame databaseFrame = new JFrame("Update Database");
-//
+        JDialog databaseFrame = new JDialog();
+
         JLabel header=new JLabel();
         header.setFont(new Font ("Courier",Font.BOLD,14));
         header.setBounds(10,-120,900,300);
@@ -70,6 +70,7 @@ public class updateDatabaseWindow extends startWindow{
         DSTprojectionUpdate.setBounds(95,225,150,40);
         DSTprojectionUpdate.setVisible(false);
         databaseFrame.add(DSTprojectionUpdate);
+
         //Return button
         JButton returnButton = new JButton("Finished");
         returnButton.setBounds(10, 280, 150, 40);
@@ -79,8 +80,7 @@ public class updateDatabaseWindow extends startWindow{
         databaseFrame.setLocationRelativeTo(null);
         databaseFrame.setLayout(null);
         databaseFrame.setVisible(true);
-        databaseFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        databaseFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 
         //action listener
@@ -121,8 +121,8 @@ public class updateDatabaseWindow extends startWindow{
         returnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               // parser.printDatabase();
-                databaseFrame.setVisible(false);
+
+                databaseFrame.dispose();
 
             }
         });
