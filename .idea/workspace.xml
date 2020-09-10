@@ -2,42 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff6d3ebe-7df9-4fc6-ac01-bcb7b6ae8a9c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/GeneticsCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/GeneticsCode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/LineupWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/LineupWindow$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/LineupWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/LineupWindow$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/LineupWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/LineupWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/META-INF/FootballGenerator.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/csvParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/csvParser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/geneticLineup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/geneticLineup.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/lineupSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/lineupSet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/playerDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/playerDatabase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/startWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/startWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/startWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/startWindow$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/startWindow$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/startWindow$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/startWindow$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/startWindow$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/startWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/startWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/updateDatabaseWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/updateDatabaseWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/updateDatabaseWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/updateDatabaseWindow$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/updateDatabaseWindow$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/updateDatabaseWindow$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/updateDatabaseWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/updateDatabaseWindow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GeneticsCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GeneticsCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LineupWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LineupWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/csvParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/csvParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geneticLineup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geneticLineup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playerDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/playerDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/FanDuel-NFL-2018-09-13-28179-players-list.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/FantasyPros_Fantasy_Football_Projections_DST.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/FantasyPros_Fantasy_Football_Projections_QB.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/FantasyPros_Fantasy_Football_Projections_RB.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/FantasyPros_Fantasy_Football_Projections_TE.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/FantasyPros_Fantasy_Football_Projections_WR.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Main Background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/startWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/startWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/updateDatabaseWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/updateDatabaseWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lineupSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lineupSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/File Sources/FantasyPros_Fantasy_Football_Projections_RB.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/File Sources/FantasyPros_Fantasy_Football_Projections_RB.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,62 +28,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>Team</find>
-      <find>false</find>
-      <find>QB</find>
-      <find>80</find>
-      <find>RB1</find>
-      <find>0</find>
-      <find>300</find>
-      <find>8</find>
-      <find>.get(</find>
-      <find>1)</find>
-      <find>8)</find>
-      <find>set</find>
-      <find>MAX_SIZE</find>
-      <find>fullGeneration[chromosomeCount]</find>
-      <find>arr</find>
-      <find>genCount</find>
-      <find>lineup[7]</find>
-      <find>lineup[0]</find>
-      <find>lineup[8]</find>
-      <find>databaseFrame</find>
-      <find>lineupFrame</find>
-      <find>startFrame</find>
-      <find>mainWindowCard</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>Proj</replace>
-      <replace>true\</replace>
-      <replace>true</replace>
-      <replace>RB1</replace>
-      <replace>RB2</replace>
-      <replace>WR1</replace>
-      <replace>170</replace>
-      <replace>WR3</replace>
-      <replace>TE</replace>
-      <replace>FLEX</replace>
-      <replace>DEF</replace>
-      <replace>1</replace>
-      <replace>5</replace>
-      <replace>8</replace>
-      <replace>330</replace>
-      <replace>7</replace>
-      <replace>[</replace>
-      <replace>8]</replace>
-      <replace>GEN_SIZE</replace>
-      <replace>set</replace>
-      <replace>fullGeneration</replace>
-      <replace>lineupCount</replace>
-      <replace>lineup.lineUp.get(8)</replace>
-      <replace>updateWindowCard</replace>
-      <replace>rosterWindow</replace>
-      <replace>mainWindowCard</replace>
-      <replace>startFrame</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -182,42 +103,42 @@
     </todo-panel>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1806" height="281" key="GridCell.Tab.0.bottom" timestamp="1599699324589">
+    <state width="1877" height="332" key="GridCell.Tab.0.bottom" timestamp="1599707897499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1806" height="281" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599699324589" />
+    <state width="1877" height="332" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707897499" />
     <state width="1877" height="217" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1599690131415" />
-    <state width="1806" height="281" key="GridCell.Tab.0.center" timestamp="1599699324589">
+    <state width="1877" height="332" key="GridCell.Tab.0.center" timestamp="1599707897499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1806" height="281" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599699324589" />
+    <state width="1877" height="332" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707897499" />
     <state width="1877" height="217" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1599690131415" />
-    <state width="1806" height="281" key="GridCell.Tab.0.left" timestamp="1599699324589">
+    <state width="1877" height="332" key="GridCell.Tab.0.left" timestamp="1599707897499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1806" height="281" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599699324589" />
+    <state width="1877" height="332" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707897499" />
     <state width="1877" height="217" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1599690131415" />
-    <state width="1806" height="281" key="GridCell.Tab.0.right" timestamp="1599699324589">
+    <state width="1877" height="332" key="GridCell.Tab.0.right" timestamp="1599707897499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1806" height="281" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599699324589" />
+    <state width="1877" height="332" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707897499" />
     <state width="1877" height="217" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1599690131415" />
-    <state width="1806" height="281" key="GridCell.Tab.1.bottom" timestamp="1599699324589">
+    <state width="1877" height="284" key="GridCell.Tab.1.bottom" timestamp="1599707692153">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1806" height="281" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599699324589" />
-    <state width="1806" height="281" key="GridCell.Tab.1.center" timestamp="1599699324589">
+    <state width="1877" height="284" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707692153" />
+    <state width="1877" height="284" key="GridCell.Tab.1.center" timestamp="1599707692153">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1806" height="281" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599699324589" />
-    <state width="1806" height="281" key="GridCell.Tab.1.left" timestamp="1599699324589">
+    <state width="1877" height="284" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707692153" />
+    <state width="1877" height="284" key="GridCell.Tab.1.left" timestamp="1599707692153">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1806" height="281" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599699324589" />
-    <state width="1806" height="281" key="GridCell.Tab.1.right" timestamp="1599699324589">
+    <state width="1877" height="284" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707692153" />
+    <state width="1877" height="284" key="GridCell.Tab.1.right" timestamp="1599707692153">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1806" height="281" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599699324589" />
+    <state width="1877" height="284" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707692153" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

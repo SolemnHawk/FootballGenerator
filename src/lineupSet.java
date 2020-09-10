@@ -38,6 +38,8 @@ public class lineupSet {
                     return false;
                 }
         }
+        if(newPlayer==null)
+            return false;
 
         //Dont select players that wont score
         if ((newPlayer.getProjection())<1) {
@@ -129,7 +131,7 @@ public class lineupSet {
         lineupCost=lineupCost+newPlayer.getPlayerSalary();
         lineupProj=lineupProj+newPlayer.getProjection();
     }
-    public void sortLineup(){ //sort list of players into printable lineup
+    public void sortLineup(){ //sort list of players into printable lineup [0]QB,[1-2]RB,[3-5]WR,[6]TE,[7]Flex[8]Def
 
         Player temp;
         int rbCount=0;

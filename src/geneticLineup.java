@@ -5,7 +5,7 @@ public class geneticLineup extends lineupSet{
 
     private Random rand;
     private boolean ELITISM=true; // keep best lineup into future
-    private double MUTATE_RATE=1; // rate of mutation/100
+    private double MUTATE_RATE=1; // rate of mutation/1000
     private int GEN_SIZE=3000; //# of lineups per generation
     private int LIFETIME=1000; //# of Gen to run
     private int optimizationCutoff=(LIFETIME/5);
@@ -118,7 +118,7 @@ public class geneticLineup extends lineupSet{
             previous = fullGeneration[i].getFitnessPercent();
         }
     }
-    public void evolveGeneration() {
+    public void evolveGeneration(int generation) {
             int lineupCounter = 0;
             nextGeneration=new lineupSet[GEN_SIZE];
 
@@ -156,12 +156,76 @@ public class geneticLineup extends lineupSet{
 
                 nextGeneration[lineupCounter]=new lineupSet();
                 //Crossover
-                i=0;
-               while (nextGeneration[lineupCounter].getSetSize()!=9){  //increment through the entire lineup
 
-                    int randPick = rand.nextInt(2); //50/50 chance to swap the current player if they fit
+               while (nextGeneration[lineupCounter].getSetSize()<9){  //increment through the entire lineup
 
-                    if (randPick == 1) {
+
+                     i=nextGeneration[lineupCounter].getSetSize();
+
+                    int randPick = rand.nextInt(1000); //check to see if mutate, else pick 1 of the parents pieces
+
+                    if(randPick<=MUTATE_RATE)
+                    {
+                        if(i==0)//Mutate quarterback
+                        {   randPick = rand.nextInt(playerSet.get(0).size());
+                            while (!nextGeneration[lineupCounter].playerViable(playerSet.get(0).get(randPick))) //If player meets criteria add to lineup
+                                randPick = rand.nextInt(playerSet.get(0).size());
+                            nextGeneration[lineupCounter].addPlayer(playerSet.get(0).get(randPick));
+                            //System.out.println(generation+" Gene mutated QB at "+lineupCounter);
+                        }
+                        else if(i<3)//RB
+                        {
+                            randPick = rand.nextInt(playerSet.get(1).size());
+                            while (!nextGeneration[lineupCounter].playerViable(playerSet.get(1).get(randPick))) //If player meets criteria add to lineup
+                                randPick = rand.nextInt(playerSet.get(1).size());
+                            nextGeneration[lineupCounter].addPlayer(playerSet.get(1).get(randPick));
+                            //System.out.println(generation+" Gene mutated RB at "+lineupCounter+ " "+ playerSet.get(1).get(randPick).getPlayerName());
+                        }
+                        else if(i<6)
+                        {
+                            randPick = rand.nextInt(playerSet.get(2).size());
+                            while (!nextGeneration[lineupCounter].playerViable(playerSet.get(2).get(randPick))) //If player meets criteria add to lineup
+                                randPick = rand.nextInt(playerSet.get(2).size());
+                            nextGeneration[lineupCounter].addPlayer(playerSet.get(2).get(randPick));
+                            //System.out.println(generation+" Gene mutated WR at "+lineupCounter+ " "+ playerSet.get(2).get(randPick).getPlayerName());
+                        }
+                        else if(i==6)//Mutate Tight End
+                        {
+                            randPick = rand.nextInt(playerSet.get(3).size());
+                            while (!nextGeneration[lineupCounter].playerViable(playerSet.get(3).get(randPick))) //If player meets criteria add to lineup
+                                randPick = rand.nextInt(playerSet.get(3).size());
+                            nextGeneration[lineupCounter].addPlayer(playerSet.get(3).get(randPick));
+                            //System.out.println(generation+" Gene mutated TE at "+lineupCounter+ " "+ playerSet.get(3).get(randPick).getPlayerName());
+                        }
+                        else if(i==7) //Mutate Flex
+                        {
+                            randPick=rand.nextInt(2);
+                            if(randPick==1) { //Mutate Flex to a runningback
+                                randPick = rand.nextInt(playerSet.get(1).size());
+                                while (!nextGeneration[lineupCounter].playerViable(playerSet.get(1).get(randPick))) //If player meets criteria add to lineup
+                                    randPick = rand.nextInt(playerSet.get(1).size());
+                                nextGeneration[lineupCounter].addPlayer(playerSet.get(1).get(randPick));
+                            }
+                            else //mutate flex to a Wide Receiver
+                            {
+                                randPick = rand.nextInt(playerSet.get(2).size());
+                                while (!nextGeneration[lineupCounter].playerViable(playerSet.get(2).get(randPick))) //If player meets criteria add to lineup
+                                    randPick = rand.nextInt(playerSet.get(2).size());
+                                nextGeneration[lineupCounter].addPlayer(playerSet.get(2).get(randPick));
+                            }
+                            //System.out.println(generation+" Gene mutated Flex at "+lineupCounter);
+                        }
+                        else if(i==8) //Mutate Defense
+                        {
+                            randPick = rand.nextInt(playerSet.get(4).size());
+                            while (!nextGeneration[lineupCounter].playerViable(playerSet.get(4).get(randPick))) //If player meets criteria add to lineup
+                                randPick = rand.nextInt(playerSet.get(4).size());
+                            nextGeneration[lineupCounter].addPlayer(playerSet.get(4).get(randPick));
+                            //System.out.println(generation+" Gene mutated Def at "+lineupCounter+ " "+ playerSet.get(4).get(randPick).getPlayerName());
+                        }
+                    }
+                    else if (randPick %2 ==1)
+                    {
                         if (nextGeneration[lineupCounter].playerViable(fullGeneration[parent2].sortedLineup[i]))  //if player is viable in new gen, add to new lineup
                             nextGeneration[lineupCounter].addPlayer(fullGeneration[parent2].sortedLineup[i]);
                         else if (nextGeneration[lineupCounter].playerViable(fullGeneration[parent1].sortedLineup[i])) //If chosen player wasnt viable, is the other lineup?
@@ -171,9 +235,11 @@ public class geneticLineup extends lineupSet{
                             nextGeneration[lineupCounter].clearLineUp();
                             createLineup(lineupCounter);
                             nextGeneration[lineupCounter]=set;
-                            //System.out.println("\nLineup " +lineupCounter+ " was mutated\n");
+                            //System.out.println("\nLineup " +lineupCounter+ " was scraped\n");
                         }
-                    } else if (randPick == 0) {
+                    }
+                    else if (randPick %2 ==0)
+                    {
                         if (nextGeneration[lineupCounter].playerViable(fullGeneration[parent1].sortedLineup[i]))  //if player is viable in new gen, add to new lineup
                             nextGeneration[lineupCounter].addPlayer(fullGeneration[parent1].sortedLineup[i]);
                         else if (nextGeneration[lineupCounter].playerViable(fullGeneration[parent2].sortedLineup[i])) //If chosen player wasnt viable, is the other lineup?
@@ -183,10 +249,9 @@ public class geneticLineup extends lineupSet{
                             nextGeneration[lineupCounter].clearLineUp();
                             createLineup(lineupCounter);
                             nextGeneration[lineupCounter]=set;
-                            //System.out.println("\nLineup " +lineupCounter+ " was mutated\n");
+                            //System.out.println("\nLineup " +lineupCounter+ " was scraped\n");
                         }
                     }
-                    i++;
                 }
 
                 nextGeneration[lineupCounter].sortLineup(); //sort into normal order

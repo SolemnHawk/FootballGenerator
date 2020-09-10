@@ -4,7 +4,7 @@ public class Player {
     private String playerTeam;
     private String playerPos;
     private int playerSalary;
-    private float projPoints;
+    private float projPoints=0;
 
     public Player(String name, String team, String position, int salary, float projection)
     {

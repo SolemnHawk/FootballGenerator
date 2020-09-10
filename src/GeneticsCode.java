@@ -24,7 +24,7 @@ public class GeneticsCode {
                genOptimaCount++;
 
                if(genOptimaCount==genetic.getCutoff()) {
-                   System.out.println("Genetic run ended at "+ genOptimaCount+"th generation due to lack of improvement.");
+                   System.out.println("Genetic run ended at "+ genCount+"th generation due to lack of improvement.");
                    break;
                }
            }
@@ -40,7 +40,7 @@ public class GeneticsCode {
 //            System.out.println("========================================================");
 
             genCount++;
-            genetic.evolveGeneration(); //Create next generation
+            genetic.evolveGeneration(genCount); //Create next generation
         }
 
        return genetic.fullGeneration[0];
