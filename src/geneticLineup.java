@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class geneticLineup extends lineupSet{
@@ -7,13 +6,10 @@ public class geneticLineup extends lineupSet{
     private Random rand;
     private boolean ELITISM=true; // keep best lineup into future
     private double MUTATE_RATE=1; // rate of mutation/100
-    private int GEN_SIZE=300; //# of lineups per generation
+    private int GEN_SIZE=3000; //# of lineups per generation
     private int LIFETIME=1000; //# of Gen to run
-    private int optimizationCutoff=(LIFETIME/10);
+    private int optimizationCutoff=(LIFETIME/5);
 
-
-
-    csvParser parser;
 
     ArrayList<ArrayList<Player>> playerSet;
     lineupSet[] fullGeneration=new lineupSet[GEN_SIZE];

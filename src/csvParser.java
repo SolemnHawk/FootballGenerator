@@ -13,92 +13,19 @@ import java.io.OutputStreamWriter;
 public class csvParser {
     playerDatabase database=new playerDatabase();
 
-    public void setBaseDatabase(){
-        String filePath= "src/resources/Football-Database.csv";
-        String playerName="";
-        String playerTeam="";
-        String playerPos="";
-        String playerSalary;
-        String playerProj;
-        float projection=0;
-        int salary=0;
-        int count=1;
-        int nameSpot=0;
-        int pointSpot=0;
-        int teamSpot=0;
-        int posSpot=0;
-        int salarySpot=0;
-        int counter=1;
-        try
-        {
-            FileReader filereader=new FileReader(filePath);
-            CSVReader reader=new CSVReaderBuilder(filereader).build();
-            List<String[]> allData = new ArrayList<>();
-            String[] line;
-            line=reader.readNext();
-            allData.add(line);
-
-            for(String[] row:allData) {
-                for (String cell : row) {
-                    if (cell.equals("Player"))
-                        nameSpot = counter;
-                    else if (cell.equals("Projection"))
-                        pointSpot = counter;
-                    else if(cell.equals("Team"))
-                        teamSpot=counter;
-                    else if(cell.equals("Position"))
-                        posSpot=counter;
-                    else if(cell.equals("Salary"))
-                        salarySpot=counter;
-                    counter++;
-                }
-            }
-            line=reader.readNext();
-            allData.clear();
-            while ((line = reader.readNext()) != null) {
-                allData.add(line);
-            }
-
-            for(String[] row:allData){
-                for (String cell:row){
-                    if (count==nameSpot) {
-                        playerName = cell;
-                    }
-                    else if(count==pointSpot) {
-                        playerProj = cell;
-                        projection=Float.parseFloat(playerProj);
-                    }
-                    else if(count==salarySpot) {
-                        playerSalary = cell;
-                        salary = Integer.parseInt(playerSalary);
-                    }
-                    else if(count==teamSpot){
-                        playerTeam=cell;
-                    }
-                    else if(count==posSpot){
-                        playerPos=cell;
-                    }
-                    count++;
-                }
-                Player newPlayer=new Player(playerName,playerTeam,playerPos,salary,projection);
-                database.addPlayer(newPlayer);
-                count=1;
-            }
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-    public void parseSalary(String fileName){
-        String filePath= "src/resources/"+fileName;
+    public boolean parseSalary(String fileName){
+        String filePath= fileName;
         String playerName="";
         String playerSalary="";
         int salary=0;
         int count=1;
         int nameSpot=0;
         int salarySpot=0;
+        int teamSpot=0;
+        int posSpot=0;
         int counter=1;
+        String team="";
+        String position="";
         try
         {
             FileReader filereader=new FileReader(filePath);
@@ -114,6 +41,10 @@ public class csvParser {
                         nameSpot = counter;
                     else if (cell.equals("Salary"))
                         salarySpot = counter;
+                    else if(cell.equals("Team"))
+                        teamSpot=counter;
+                    else if(cell.equals("Position"))
+                        posSpot=counter;
                     counter++;
                 }
             }
@@ -131,23 +62,32 @@ public class csvParser {
                         playerSalary = cell;
                         salary= Integer.parseInt(playerSalary);
                     }
+                    else if(count==teamSpot) {
+                        team = cell;
+                    }
+                    else if(count==posSpot) {
+                        position = cell;
+                    }
                     count++;
                 }
                 if(playerName.equals(""))
                 {}
-                else if(database.findPlayer(playerName))
-                    database.updatePlayerSalary(playerName,salary);
                 else
-                    System.out.println(playerName+" Not found from salary");
+                {
+                    Player newPlayer=new Player(playerName,team,position,salary,0);
+                    database.addPlayer(newPlayer);
+                }
                 count=1;
             }
         }
         catch(Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
-    public void parseProjection(String fileName){
-        String filePath= "src/resources/"+fileName;
+    public boolean parseProjection(String fileName){
+        String filePath= "src/resources/File Sources/"+fileName;
         String playerName="";
         String playerProj="";
         float projection=0;
@@ -160,7 +100,7 @@ public class csvParser {
             FileReader filereader=new FileReader(filePath);
             CSVReader reader=new CSVReaderBuilder(filereader).withSkipLines(0).build();
             List<String[]> allData = new ArrayList<>();
-            String[] line;
+            String [] line;
             line=reader.readNext();
             allData.add(line);
 
@@ -182,7 +122,6 @@ public class csvParser {
                 for (String cell:row){
                     if (count==nameSpot) {
                         playerName = cell;
-
                     }
                     else if(count==pointSpot) {
                         playerProj = cell;
@@ -190,21 +129,26 @@ public class csvParser {
                     }
                     count++;
                 }
+                int playerSetPosition=database.findPlayer(playerName);
                 if(playerName.equals(""))
                 {}
-                else if(database.findPlayer(playerName))
-                    database.updatePlayerProj(playerName,projection);
-                else
-                    System.out.println(playerName+" not found in projections");
+                else if(playerSetPosition!=-1)
+                    database.updatePlayerProj(projection,playerSetPosition);
+                else {
+                    if (fileName.contains("DST"))
+                        System.out.println(playerName + " not found in chosen Slate");
+                }
                 count=1;
             }
+
         }
         catch(Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
-    public void printDatabase()
-    {
+    public void printDatabase() {
      database.printPlayers();
     }
     public void saveDatabase() {

@@ -16,14 +16,14 @@ public class startWindow {
 
     startWindow() {
 
-        parser.setBaseDatabase();
+       // parser.setBaseDatabase();
 
         JFrame startFrame = new JFrame("Job Hunt Tracker");
 
         //Pushing image as a backdrop
         BufferedImage img=null;
         try {
-             img = ImageIO.read(new File("src/resources/Main Background.png"));
+             img = ImageIO.read(new File("src/resources/Image Sources/Main Background.png"));
         }
         catch(IOException   e){
             e.printStackTrace();
@@ -67,6 +67,7 @@ public class startWindow {
             public void actionPerformed(ActionEvent arg0) {
                 parser.database.trimDatabase();
                 parser.database.sortDatabase();
+                //parser.database.printPlayers();
                 new LineupWindow(parser);
             }
         });
@@ -80,6 +81,7 @@ public class startWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 newRosterButton.setEnabled(true);
+                editRosterButton.setEnabled(true);
                 new updateDatabaseWindow(parser);
 
             }

@@ -12,27 +12,23 @@ public class playerDatabase {
     public playerDatabase(){
     databaseSize=0;
     }
-    public boolean findPlayer(String playerName){
+    public int findPlayer(String playerName){
+
         for (int i=0;i<playerSet.size();i++)
         {
-            if (playerSet.get(i).getPlayerName().contains(playerName));
-                return true;
+            String name=playerSet.get(i).getPlayerName();
+            if (name.equals(playerName))
+                return i;
         }
-        return false;
+        return -1;
     }
 
     public void addPlayer(Player newplayer){
         playerSet.add(newplayer);
         databaseSize++;
     }
-    public void updatePlayerProj(String playerName, float playerProj) {
-        for(int i=0;i<playerSet.size();i++)  //if multiple projections, get average
-        {
-             if(playerSet.get(i).getPlayerName().contains(playerName))
-            {
-                playerSet.get(i).setProjections(playerProj);
-            }
-        }
+    public void updatePlayerProj(float playerProj, int playerPositon) {
+        playerSet.get(playerPositon).setProjections(playerProj);
     }
 
     public void updatePlayerSalary(String playerName, int playerSalary) {
