@@ -171,4 +171,11 @@ public class csvParser {
             System.err.println("Could not create file");
         }
     }
+    public void removePlayer(String playerName){
+        int found=database.findPlayer(playerName);
+        if(found!=-1)
+        {
+            database.updatePlayerProj(-1,found);
+        }
+    }
 }

@@ -5,10 +5,10 @@ public class geneticLineup extends lineupSet{
 
     private Random rand;
     private boolean ELITISM=true; // keep best lineup into future
-    private double MUTATE_RATE=1; // rate of mutation/1000
-    private int GEN_SIZE=3000; //# of lineups per generation
-    private int LIFETIME=1000; //# of Gen to run
-    private int optimizationCutoff=(LIFETIME/5);
+    private double MUTATE_RATE=10; // rate of mutation/1000
+    private int GEN_SIZE=1000; //# of lineups per generation
+    private int LIFETIME=10000; //# of Gen to run
+    private int optimizationCutoff=(LIFETIME/10);
 
 
     ArrayList<ArrayList<Player>> playerSet;

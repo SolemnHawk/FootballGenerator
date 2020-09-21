@@ -15,12 +15,17 @@ public class LineupWindow {
         GeneticsCode genetic = new GeneticsCode();
 
         JDialog lineupFrame = new JDialog();
-//
+
 
         JButton closeButton=new JButton("Return");
         closeButton.setLocation(312,0);
         closeButton.setSize(72,20);
         lineupFrame.add(closeButton);
+
+        JButton removePlayerButton=new JButton("Revise");
+        removePlayerButton.setLocation(0,0);
+        removePlayerButton.setSize(72,20);
+        lineupFrame.add(removePlayerButton);
 
 
         JButton lineup = new JButton("Generate Lineup");
@@ -198,7 +203,8 @@ public class LineupWindow {
         calculating.setBounds(40, 80, 350, 40);
         calculating.setVisible(true);
         lineupFrame.add(calculating);
-        //action listener
+
+        //action listeners
         lineup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
@@ -267,6 +273,61 @@ public class LineupWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 lineupFrame.dispose();
+            }
+        });
+        removePlayerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               String playerName=JOptionPane.showInputDialog("Enter a player to remove from all Lineups.");
+                parser.removePlayer(playerName);
+                JOptionPane.showMessageDialog(lineupFrame, playerName+ " will no longer show in lineups!");
+                QB.setText("QB: " );
+                QBTeam.setText("");
+                QBSalary.setText("$");
+                QBProj.setText("" );
+
+                RB1.setText("RB1: " );
+                RB1Team.setText("");
+                RB1Salary.setText("$");
+                RB1Proj.setText("");
+
+                RB2.setText("RB2: ");
+                RB2Team.setText("");
+                RB2Salary.setText("$");
+                RB2Proj.setText("" );
+
+                WR1.setText("WR1: ");
+                WR1Team.setText("");
+                WR1Salary.setText("$");
+                WR1Proj.setText("");
+
+                WR2.setText("WR2: ");
+                WR2Team.setText("");
+                WR2Salary.setText("$");
+                WR2Proj.setText("");
+
+                WR3.setText("WR3: ");
+                WR3Team.setText("");
+                WR3Salary.setText("$");
+                WR3Proj.setText("");
+
+                TE.setText("TE: ");
+                TETeam.setText("");
+                TESalary.setText("$");
+                TEProj.setText("");
+
+                FLEX.setText("FLEX: ");
+                FLEXTeam.setText("");
+                FLEXSalary.setText("$");
+                FLEXProj.setText("");
+
+                DEF.setText("DEF: ");
+                DEFTeam.setText("");
+                DEFSalary.setText("$");
+                DEFProj.setText("");
+
+                Totals.setText("             Total Cost: $"+ "               "  + " points projected.");
+                Totals.setVisible(true);
             }
         });
     }

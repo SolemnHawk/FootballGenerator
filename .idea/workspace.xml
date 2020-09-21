@@ -3,18 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="ff6d3ebe-7df9-4fc6-ac01-bcb7b6ae8a9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/GeneticsCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/GeneticsCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/LineupWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/LineupWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/LineupWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/LineupWindow$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/LineupWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/LineupWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/geneticLineup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/geneticLineup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/lineupSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/lineupSet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GeneticsCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GeneticsCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/resources/File Sources/FanDuel-NFL-2020-09-13-47691-players-list.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/resources/File Sources/FantasyPros_Fantasy_Football_Projections_DST.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/resources/File Sources/FantasyPros_Fantasy_Football_Projections_DST.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/resources/File Sources/FantasyPros_Fantasy_Football_Projections_QB.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/resources/File Sources/FantasyPros_Fantasy_Football_Projections_QB.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/resources/File Sources/FantasyPros_Fantasy_Football_Projections_RB.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/resources/File Sources/FantasyPros_Fantasy_Football_Projections_RB.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/resources/File Sources/FantasyPros_Fantasy_Football_Projections_TE.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/resources/File Sources/FantasyPros_Fantasy_Football_Projections_TE.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FootballGenerator/resources/File Sources/FantasyPros_Fantasy_Football_Projections_WR.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FootballGenerator/resources/File Sources/FantasyPros_Fantasy_Football_Projections_WR.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LineupWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LineupWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/csvParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/csvParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geneticLineup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geneticLineup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lineupSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lineupSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playerDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/playerDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/File Sources/FanDuel-NFL-2020-09-13-47691-players-list.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/File Sources/FantasyPros_Fantasy_Football_Projections_DST.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/File Sources/FantasyPros_Fantasy_Football_Projections_DST.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/File Sources/FantasyPros_Fantasy_Football_Projections_QB.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/File Sources/FantasyPros_Fantasy_Football_Projections_QB.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/File Sources/FantasyPros_Fantasy_Football_Projections_RB.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/File Sources/FantasyPros_Fantasy_Football_Projections_RB.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/File Sources/FantasyPros_Fantasy_Football_Projections_TE.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/File Sources/FantasyPros_Fantasy_Football_Projections_TE.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/File Sources/FantasyPros_Fantasy_Football_Projections_WR.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/File Sources/FantasyPros_Fantasy_Football_Projections_WR.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,42 +109,42 @@
     </todo-panel>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="332" key="GridCell.Tab.0.bottom" timestamp="1599707897499">
+    <state width="1877" height="332" key="GridCell.Tab.0.bottom" timestamp="1600681517777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="332" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707897499" />
+    <state width="1877" height="332" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1600681517777" />
     <state width="1877" height="217" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1599690131415" />
-    <state width="1877" height="332" key="GridCell.Tab.0.center" timestamp="1599707897499">
+    <state width="1877" height="332" key="GridCell.Tab.0.center" timestamp="1600681517777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="332" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707897499" />
+    <state width="1877" height="332" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1600681517777" />
     <state width="1877" height="217" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1599690131415" />
-    <state width="1877" height="332" key="GridCell.Tab.0.left" timestamp="1599707897499">
+    <state width="1877" height="332" key="GridCell.Tab.0.left" timestamp="1600681517777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="332" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707897499" />
+    <state width="1877" height="332" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1600681517777" />
     <state width="1877" height="217" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1599690131415" />
-    <state width="1877" height="332" key="GridCell.Tab.0.right" timestamp="1599707897499">
+    <state width="1877" height="332" key="GridCell.Tab.0.right" timestamp="1600681517777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="332" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707897499" />
+    <state width="1877" height="332" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1600681517777" />
     <state width="1877" height="217" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1599690131415" />
-    <state width="1877" height="284" key="GridCell.Tab.1.bottom" timestamp="1599707692153">
+    <state width="1877" height="284" key="GridCell.Tab.1.bottom" timestamp="1599708000780">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="284" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707692153" />
-    <state width="1877" height="284" key="GridCell.Tab.1.center" timestamp="1599707692153">
+    <state width="1877" height="284" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599708000780" />
+    <state width="1877" height="284" key="GridCell.Tab.1.center" timestamp="1599708000780">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="284" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707692153" />
-    <state width="1877" height="284" key="GridCell.Tab.1.left" timestamp="1599707692153">
+    <state width="1877" height="284" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599708000780" />
+    <state width="1877" height="284" key="GridCell.Tab.1.left" timestamp="1599708000780">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="284" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707692153" />
-    <state width="1877" height="284" key="GridCell.Tab.1.right" timestamp="1599707692153">
+    <state width="1877" height="284" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599708000780" />
+    <state width="1877" height="284" key="GridCell.Tab.1.right" timestamp="1599708000780">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="284" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599707692153" />
+    <state width="1877" height="284" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599708000780" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -157,10 +163,6 @@
         <watch expression="playerSet.get(251)" />
       </configuration>
     </watches-manager>
-  </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FootballGenerator$Runit.ic" NAME="Runit Coverage Results" MODIFIED="1586834237431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

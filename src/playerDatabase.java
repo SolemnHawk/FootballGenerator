@@ -17,7 +17,7 @@ public class playerDatabase {
         for (int i=0;i<playerSet.size();i++)
         {
             String name=playerSet.get(i).getPlayerName();
-            if (name.equals(playerName))
+            if (name.equalsIgnoreCase(playerName))
                 return i;
         }
         return -1;
@@ -30,7 +30,7 @@ public class playerDatabase {
     public void updatePlayerProj(float playerProj, int playerPositon) {
         playerSet.get(playerPositon).setProjections(playerProj);
     }
-
+    public int getDatabaseSize(){return databaseSize;}
     public void updatePlayerSalary(String playerName, int playerSalary) {
         for (int i = 0; i < playerSet.size(); i++) {
             if (playerSet.get(i).getPlayerName().contains(playerName)) {
@@ -66,7 +66,6 @@ public class playerDatabase {
             System.out.println(sortedSet.get(4).get(i).getPlayerName()+ " "+ sortedSet.get(4).get(i).getProjection());
         }
     }
-
     public void sortDatabase(){
          ArrayList<Player> qbList=new ArrayList<Player>();
          ArrayList<Player> rbList=new ArrayList<Player>();
@@ -102,11 +101,9 @@ public class playerDatabase {
             }
         }
     }
-
     public ArrayList<ArrayList<Player>> getSortedDatabase(){
         return sortedSet;
     }
-
     public List<Player> getDatabase(){
         return playerSet;
     }

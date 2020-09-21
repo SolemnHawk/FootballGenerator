@@ -18,6 +18,8 @@ public class Player {
     public void setProjections(float newProj){
         if (projPoints==0)
             projPoints=newProj;
+        if(newProj==-1)
+            projPoints=0;
         else
             projPoints=(projPoints+newProj)/2;
     }
